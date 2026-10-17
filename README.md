@@ -1,0 +1,1 @@
+Engineering impact is a contribution that improves customer capabilities, strengthens system reliability or correctness, or helps other engineers deliver meaningful work.
