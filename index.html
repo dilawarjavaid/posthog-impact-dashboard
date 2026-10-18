@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An evidence-led review of engineering impact in PostHog's public GitHub contributions.">
+  <title>PostHog · Engineering impact</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div><p class="eyebrow"><span class="mark">↗</span> POSTHOG / ENGINEERING INTELLIGENCE</p><h1>Who moved PostHog forward?</h1><p class="subtitle">Outcomes over activity. A review of public engineering contributions.</p></div>
+      <button id="method" class="outline">How this works <span aria-hidden="true">↗</span></button>
+    </header>
+    <section class="stats" aria-label="Analysis coverage" id="stats"><p>Loading validated data…</p></section>
+    <section class="workspace">
+      <section class="leaderboard" aria-label="Engineer leaderboard">
+        <div class="section-top"><div><p class="eyebrow">THE SHORTLIST</p><h2>Five leading positions</h2></div><button id="show-all" class="text-button">All reviewed</button></div>
+        <label for="priority">Leadership priority</label><select id="priority"><option value="balanced">Balanced · outcome + reach</option><option value="outcome">Outcome focused · 2× outcome + reach</option><option value="reach">Reach focused · outcome + 2× reach</option></select>
+        <div class="list" id="engineers" aria-label="Select an engineer"></div>
+        <p class="tie-note" id="tie-note"></p>
+      </section>
+      <section class="detail" id="detail" aria-live="polite"><p>Select an engineer to explore the evidence.</p></section>
+    </section>
+    <footer><span><span class="status-dot"></span> Complete collection · selective evidence review</span><span>Public GitHub evidence ≠ complete individual performance</span><button id="download" class="text-button">Download analysis ↓</button></footer>
+    <p id="error" role="alert" hidden></p>
+  </main>
+  <dialog id="method-dialog"><div class="dialog-head"><h2>Understand the ranking</h2><button id="close-dialog" class="outline">Close ×</button></div><div id="method-content"></div></dialog>
+</body>
+</html>

@@ -1,0 +1,1471 @@
+{
+  "status": "Provisional ranking among reviewed engineers; evidence review is selective.",
+  "coverage": {
+    "repository": "PostHog/posthog",
+    "start_inclusive": "2026-07-20T00:00:00Z",
+    "end_exclusive": "2026-10-18T00:00:00Z",
+    "fetched_at": "2026-10-18T20:00:05.196398+00:00",
+    "days": 90,
+    "unique_merged_prs": 17027,
+    "daily_counts_validated": true,
+    "labels_truncated_prs": [],
+    "linked_issues_truncated_prs": [],
+    "human_authored_prs": 15003,
+    "human_authors": 193,
+    "reviewed_prs": 46,
+    "reviewed_authors": 25,
+    "reviewed_initiatives": 42
+  },
+  "methodology": {
+    "formula": "Sum of the three strongest reviewed initiative scores; each = outcome (0–4) + reach (0–3). Maximum 21.",
+    "ties": "Equal scores receive equal ranks. Alphabetical display order is not a tie-break judgment.",
+    "limitations": "Complete merged-PR collection is distinct from selective evidence review: 46 of 17,027 PRs reviewed in depth, spanning 25 of 193 identified human authors. Review depth varies and unreviewed work is not zero impact. Scores are ordinal analyst judgments; small differences do not establish definitive individual superiority.",
+    "evidence": "Relevant diff excerpts inspected; tests and benchmarks not independently executed.",
+    "confidence": "Reported measurements are labeled separately; scores are analyst judgments, not measured business impact."
+  },
+  "engineers": [
+    {
+      "author": "jose-sequeira",
+      "score": 17,
+      "reviewed_initiative_count": 3,
+      "counted_initiatives": [
+        {
+          "initiative": "Faster ingestion transformation execution",
+          "author": "jose-sequeira",
+          "prs": [
+            74117
+          ],
+          "category": "performance",
+          "outcome_strength": 3,
+          "reach": 3,
+          "reason": "Optimizes the shared transformation executor used in event ingestion.",
+          "evidence": "Diff includes shared string storage, smaller value representations, allocator changes, and VM regression tests.",
+          "reported_result": "Author reports production p50 execution time falling from 0.34 ms to 0.23 ms.",
+          "verification": "Relevant implementation and tests inspected; benchmark not independently reproduced.",
+          "limitations": "Reported measurements concern a specific ingestion lane. Program-registry integration is described as follow-up work.",
+          "score": 6,
+          "sources": [
+            {
+              "number": 74117,
+              "title": "perf(hogvm): cut transformation execution ~35% in prod, ~2x on geoip",
+              "url": "https://github.com/PostHog/posthog/pull/74117",
+              "merged_at": "2026-09-03T13:25:01Z"
+            }
+          ]
+        },
+        {
+          "initiative": "Prefetch ingestion caches before sequential event processing",
+          "author": "jose-sequeira",
+          "prs": [
+            91892
+          ],
+          "category": "performance",
+          "outcome_strength": 3,
+          "reach": 3,
+          "reason": "Reduces repeated cache loads and buffer waits in shared ingestion processing.",
+          "evidence": "Batch-prefetch interfaces, immediate buffer-flush option and cache-warming regression assertions inspected.",
+          "reported_result": "Author reports resolveTeamStep p95 falling from 16.1 to 6.3 ms and schema-validation p95 from 11.1 to 1.9 ms during a short rollout comparison.",
+          "verification": "Relevant diff excerpts and regression assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "Off by default behind separate cache flags; short rollout windows do not establish lasting end-to-end gains.",
+          "score": 6,
+          "sources": [
+            {
+              "number": 91892,
+              "title": "feat(ingestion): prefetch team, schema, and hog function caches per chunk",
+              "url": "https://github.com/PostHog/posthog/pull/91892",
+              "merged_at": "2026-09-01T11:20:46Z"
+            }
+          ]
+        },
+        {
+          "initiative": "Recover person deletions from database conflicts",
+          "author": "jose-sequeira",
+          "prs": [
+            81507
+          ],
+          "category": "reliability",
+          "outcome_strength": 3,
+          "reach": 2,
+          "reason": "Addresses caller-visible failures during concurrent batch deletion and writer flushes.",
+          "evidence": "Ordered row-lock acquisition, conflict classification, deadline-bounded retry path and regression test inspected.",
+          "reported_result": null,
+          "verification": "Relevant diff excerpts and regression assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "Reported failure rate came from synthetic load, not a measured production incident rate.",
+          "score": 5,
+          "sources": [
+            {
+              "number": 81507,
+              "title": "fix(personhog): stop batch delete sagas deadlocking with the writer",
+              "url": "https://github.com/PostHog/posthog/pull/81507",
+              "merged_at": "2026-08-11T19:41:35Z"
+            }
+          ]
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "author": "yasen-posthog",
+      "score": 17,
+      "reviewed_initiative_count": 3,
+      "counted_initiatives": [
+        {
+          "initiative": "Enforce project and organization restrictions for API tokens",
+          "author": "yasen-posthog",
+          "prs": [
+            83205
+          ],
+          "category": "security_privacy",
+          "outcome_strength": 3,
+          "reach": 3,
+          "reason": "Repairs authorization boundaries in shared API paths for scoped credentials.",
+          "evidence": "Diff applies organization restrictions and adds assertions for out-of-scope current-project lookups and activity-feed isolation.",
+          "reported_result": null,
+          "verification": "Relevant implementation and regression assertions inspected; tests not executed.",
+          "limitations": "No evidence of exploitation or a measured affected population. Scope is limited to the paths addressed.",
+          "score": 6,
+          "sources": [
+            {
+              "number": 83205,
+              "title": "fix(api): keep scoped tokens inside their projects and organizations",
+              "url": "https://github.com/PostHog/posthog/pull/83205",
+              "merged_at": "2026-08-17T06:19:19Z"
+            }
+          ]
+        },
+        {
+          "initiative": "Require stronger proof before changing account identity",
+          "author": "yasen-posthog",
+          "prs": [
+            104404
+          ],
+          "category": "security_privacy",
+          "outcome_strength": 3,
+          "reach": 3,
+          "reason": "Addresses a path from leaked programmatic credentials to account takeover.",
+          "evidence": "Session-only identity changes, pre-validation guards, fresh reauthentication and token-denial assertions inspected.",
+          "reported_result": null,
+          "verification": "Relevant implementation excerpts and regression assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "No claim of exploitation or measured incident reduction.",
+          "score": 6,
+          "sources": [
+            {
+              "number": 104404,
+              "title": "fix(security): require the current password to change the account email",
+              "url": "https://github.com/PostHog/posthog/pull/104404",
+              "merged_at": "2026-09-24T14:36:04Z"
+            }
+          ]
+        },
+        {
+          "initiative": "Recheck requester permissions when applying approvals",
+          "author": "yasen-posthog",
+          "prs": [
+            113118
+          ],
+          "category": "security_privacy",
+          "outcome_strength": 3,
+          "reach": 2,
+          "reason": "Prevents approval from outliving the requester's edit permission.",
+          "evidence": "Current object/resource access checks, invalidation behavior and revoked-access assertions inspected.",
+          "reported_result": null,
+          "verification": "Relevant implementation excerpts and regression assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "Applies to supported approval resources; tests were not independently executed.",
+          "score": 5,
+          "sources": [
+            {
+              "number": 113118,
+              "title": "feat(approvals): check the requester's access again before applying",
+              "url": "https://github.com/PostHog/posthog/pull/113118",
+              "merged_at": "2026-10-08T12:26:41Z"
+            }
+          ]
+        }
+      ],
+      "rank": 1
+    },
+    {
+      "author": "rnegron",
+      "score": 16,
+      "reviewed_initiative_count": 3,
+      "counted_initiatives": [
+        {
+          "initiative": "Prevent redundant CI dispatches from unrelated labels",
+          "author": "rnegron",
+          "prs": [
+            74017
+          ],
+          "category": "engineering_enablement",
+          "outcome_strength": 3,
+          "reach": 3,
+          "reason": "Removes repeated shared CI work triggered by metadata events that cannot affect test results.",
+          "evidence": "Workflow trigger removals and narrowed path filters inspected.",
+          "reported_result": null,
+          "verification": "Relevant diff excerpts and regression assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "Labels take effect on the next push or ready-for-review event. Reported job-minute examples were not independently audited; realized savings unknown.",
+          "score": 6,
+          "sources": [
+            {
+              "number": 74017,
+              "title": "perf(ci): stop label events and unreadable paths re-running CI",
+              "url": "https://github.com/PostHog/posthog/pull/74017",
+              "merged_at": "2026-07-29T17:06:19Z"
+            }
+          ]
+        },
+        {
+          "initiative": "Prevent destructive handling of large GitHub files",
+          "author": "rnegron",
+          "prs": [
+            98690
+          ],
+          "category": "reliability",
+          "outcome_strength": 3,
+          "reach": 2,
+          "reason": "Avoids rebuilding large snapshot baselines from an incorrectly empty file.",
+          "evidence": "Raw-blob fallback, bounded complete reads, byte-count checks and large-file assertions inspected.",
+          "reported_result": null,
+          "verification": "Relevant implementation excerpts and regression assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "No independently established frequency or post-fix incident reduction; oversized files fail explicitly.",
+          "score": 5,
+          "sources": [
+            {
+              "number": 98690,
+              "title": "fix(github): stop returning files over 1 MB as empty",
+              "url": "https://github.com/PostHog/posthog/pull/98690",
+              "merged_at": "2026-09-10T19:50:20Z"
+            }
+          ]
+        },
+        {
+          "initiative": "Remove unnecessary runtime image dependencies",
+          "author": "rnegron",
+          "prs": [
+            94686
+          ],
+          "category": "engineering_enablement",
+          "outcome_strength": 2,
+          "reach": 3,
+          "reason": "Reduces shared deployment-image overhead without retaining build tooling in runtime.",
+          "evidence": "Slim runtime base, explicit runtime libraries and digest-pinned Node copy inspected.",
+          "reported_result": null,
+          "verification": "Relevant implementation excerpts and regression assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "PR prose and downloaded diff disagree on the Python version, so no version-specific or numerical image-size claim is credited.",
+          "score": 5,
+          "sources": [
+            {
+              "number": 94686,
+              "title": "perf(docker): slim the runtime base image",
+              "url": "https://github.com/PostHog/posthog/pull/94686",
+              "merged_at": "2026-09-28T19:29:01Z"
+            }
+          ]
+        }
+      ],
+      "rank": 3
+    },
+    {
+      "author": "lricoy",
+      "score": 15,
+      "reviewed_initiative_count": 3,
+      "counted_initiatives": [
+        {
+          "initiative": "Avoid unnecessary joins in web analytics breakdowns",
+          "author": "lricoy",
+          "prs": [
+            72666
+          ],
+          "category": "performance",
+          "outcome_strength": 3,
+          "reach": 2,
+          "reason": "Improves a frequently used family of customer analytics queries.",
+          "evidence": "Shape-gated no-join strategy, session-field detection, query construction and strategy-selection assertions inspected.",
+          "reported_result": null,
+          "verification": "Relevant diff excerpts and regression assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "Only eligible query shapes use the fast path; no independently reproduced latency measurement.",
+          "score": 5,
+          "sources": [
+            {
+              "number": 72666,
+              "title": "perf(web-analytics): no-join single-scan fast path for simple breakdowns",
+              "url": "https://github.com/PostHog/posthog/pull/72666",
+              "merged_at": "2026-07-21T19:02:06Z"
+            }
+          ]
+        },
+        {
+          "initiative": "Extend analytics cache warming through demand-based selection",
+          "author": "lricoy",
+          "prs": [
+            72472
+          ],
+          "category": "performance",
+          "outcome_strength": 3,
+          "reach": 2,
+          "reason": "Removes a static-team-list scaling bottleneck and incorrect warming-path selection.",
+          "evidence": "Batched fleet demand selection, configurable limits, precompute enrollment and selection tests inspected.",
+          "reported_result": null,
+          "verification": "Relevant implementation excerpts and regression assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "Configured caps and demand thresholds constrain coverage; no verified fleet-wide latency reduction.",
+          "score": 5,
+          "sources": [
+            {
+              "number": 72472,
+              "title": "feat(web-analytics): fleet-wide demand-driven cache warming + dry-run",
+              "url": "https://github.com/PostHog/posthog/pull/72472",
+              "merged_at": "2026-07-21T18:29:47Z"
+            }
+          ]
+        },
+        {
+          "initiative": "Keep restricted properties out of shared userless precompute",
+          "author": "lricoy",
+          "prs": [
+            73342
+          ],
+          "category": "security_privacy",
+          "outcome_strength": 3,
+          "reach": 2,
+          "reason": "Prevents shared precomputed results from bypassing per-user property restrictions.",
+          "evidence": "Property-rule eligibility guard and live-path fallback assertions inspected.",
+          "reported_result": null,
+          "verification": "Relevant implementation excerpts and regression assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "Affected teams sacrifice precompute benefits; no evidence of exploitation or affected population.",
+          "score": 5,
+          "sources": [
+            {
+              "number": 73342,
+              "title": "fix(web-analytics): skip precompute for teams with property access controls",
+              "url": "https://github.com/PostHog/posthog/pull/73342",
+              "merged_at": "2026-07-23T19:47:33Z"
+            }
+          ]
+        }
+      ],
+      "rank": 4
+    },
+    {
+      "author": "Gilbert09",
+      "score": 14,
+      "reviewed_initiative_count": 3,
+      "counted_initiatives": [
+        {
+          "initiative": "Bound warehouse fetch memory and stream output writes",
+          "author": "Gilbert09",
+          "prs": [
+            111440
+          ],
+          "category": "reliability",
+          "outcome_strength": 3,
+          "reach": 2,
+          "reason": "Addresses large concurrent loader memory spikes.",
+          "evidence": "Separate fetch budgets, semaphore acquisition order, streaming writer changes and fetch-budget test additions inspected.",
+          "reported_result": null,
+          "verification": "Relevant diff excerpts and regression assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "Budgets cover particular allocations, not total process RSS; production OOM reduction not independently verified.",
+          "score": 5,
+          "sources": [
+            {
+              "number": 111440,
+              "title": "perf(deltalite): budget row-group fetches and stream parquet writes",
+              "url": "https://github.com/PostHog/posthog/pull/111440",
+              "merged_at": "2026-10-05T09:19:00Z"
+            }
+          ]
+        },
+        {
+          "initiative": "Keep warehouse queue claims available under contention and backlog",
+          "author": "Gilbert09",
+          "prs": [
+            104472,
+            112751
+          ],
+          "category": "reliability",
+          "outcome_strength": 3,
+          "reach": 2,
+          "reason": "Addresses stalled warehouse loading caused by lease contention, connection drops and unbounded backlog scans.",
+          "evidence": "Ordered lease-row locking and regression tests for reconnects, bounded retries, and exhausted retry budgets inspected. Also inspected bounded team-window claim logic, cursor rotation and equivalence/fairness regression assertions in #112751.",
+          "reported_result": null,
+          "verification": "Relevant diff excerpts and test assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "No independently verified reduction in customer failures; linked internal error tracking was not accessed. Grouped with #112751 as one warehouse queue initiative to avoid duplicate credit.",
+          "score": 5,
+          "sources": [
+            {
+              "number": 104472,
+              "title": "fix(data-warehouse): order lease locks and retry queue db drops",
+              "url": "https://github.com/PostHog/posthog/pull/104472",
+              "merged_at": "2026-09-28T14:18:32Z"
+            },
+            {
+              "number": 112751,
+              "title": "perf(data-warehouse): bound the queue claim query cost during a backlog",
+              "url": "https://github.com/PostHog/posthog/pull/112751",
+              "merged_at": "2026-10-06T18:23:05Z"
+            }
+          ]
+        },
+        {
+          "initiative": "Close warehouse data coverage gaps for BlandAI and Mercury",
+          "author": "Gilbert09",
+          "prs": [
+            118970,
+            119007
+          ],
+          "category": "customer_value",
+          "outcome_strength": 2,
+          "reach": 2,
+          "reason": "Enables previously unavailable analysis workflows across two warehouse connectors.",
+          "evidence": "Inspected BlandAI mappings, parent keys and cursor tests, plus Mercury endpoint registrations, optional ordering, bare-array selection and terminal-page assertions.",
+          "reported_result": null,
+          "verification": "Relevant implementation excerpts and regression assertions inspected; tests not independently executed.",
+          "limitations": "Grouped as one connector-coverage initiative from the same endpoint audit. Reach increases from one narrow connector audience to multiple connector workflows; no points for table count. No live vendor sync or customer adoption independently verified.",
+          "score": 4,
+          "sources": [
+            {
+              "number": 118970,
+              "title": "feat(data-warehouse): add 5 missing tables to the BlandAI source",
+              "url": "https://github.com/PostHog/posthog/pull/118970",
+              "merged_at": "2026-10-17T09:34:05Z"
+            },
+            {
+              "number": 119007,
+              "title": "feat(data-warehouse): add 3 missing tables to the Mercury source",
+              "url": "https://github.com/PostHog/posthog/pull/119007",
+              "merged_at": "2026-10-17T13:51:55Z"
+            }
+          ]
+        }
+      ],
+      "rank": 5
+    },
+    {
+      "author": "pauldambra",
+      "score": 14,
+      "reviewed_initiative_count": 3,
+      "counted_initiatives": [
+        {
+          "initiative": "Reduce unnecessary work across login and application startup",
+          "author": "pauldambra",
+          "prs": [
+            94058,
+            95273
+          ],
+          "category": "performance",
+          "outcome_strength": 3,
+          "reach": 3,
+          "reason": "Separates authenticated dependencies from logged-out boot and avoids discarding a document immediately after login.",
+          "evidence": "Lazy authenticated imports, dependency-graph guard and single-document login redirect assertions inspected.",
+          "reported_result": null,
+          "verification": "Relevant implementation excerpts and regression assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "Grouped as one startup initiative; field paint improvement after deployment not verified. No cancelled-request count is treated as a production measurement.",
+          "score": 6,
+          "sources": [
+            {
+              "number": 94058,
+              "title": "perf(frontend): keep authenticated-only code off the app boot path",
+              "url": "https://github.com/PostHog/posthog/pull/94058",
+              "merged_at": "2026-09-04T15:12:38Z"
+            },
+            {
+              "number": 95273,
+              "title": "perf(frontend): land on the post-login page in one document load",
+              "url": "https://github.com/PostHog/posthog/pull/95273",
+              "merged_at": "2026-09-04T21:58:29Z"
+            }
+          ]
+        },
+        {
+          "initiative": "Batch organization access-cache reads at page load",
+          "author": "pauldambra",
+          "prs": [
+            119026
+          ],
+          "category": "performance",
+          "outcome_strength": 2,
+          "reach": 3,
+          "reason": "Removes per-organization serial cache reads from shared application startup.",
+          "evidence": "Batched versions/data fetches and four-round-trip regression assertion inspected.",
+          "reported_result": null,
+          "verification": "Relevant diff excerpts and regression assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "Cache-call reduction does not by itself establish a measured page-load improvement; cache invalidation trade-off documented.",
+          "score": 5,
+          "sources": [
+            {
+              "number": 119026,
+              "title": "perf(access-control): batch organization access cache reads",
+              "url": "https://github.com/PostHog/posthog/pull/119026",
+              "merged_at": "2026-10-17T19:21:44Z"
+            }
+          ]
+        },
+        {
+          "initiative": "Measure settled empty searches on the picker All tab",
+          "author": "pauldambra",
+          "prs": [
+            118978
+          ],
+          "category": "engineering_enablement",
+          "outcome_strength": 1,
+          "reach": 2,
+          "reason": "Closes a measurement blind spot in a shared search picker.",
+          "evidence": "Settled-view guards, failed-request exclusion, deduplication, scope fields, and rendered test assertions inspected.",
+          "reported_result": null,
+          "verification": "Relevant implementation excerpts and regression assertions inspected; tests not independently executed.",
+          "limitations": "Measurement coverage only; no demonstrated improvement in search success or subsequent decisions.",
+          "score": 3,
+          "sources": [
+            {
+              "number": 118978,
+              "title": "fix(taxonomic-filter): measure all-tab empty results",
+              "url": "https://github.com/PostHog/posthog/pull/118978",
+              "merged_at": "2026-10-17T13:52:03Z"
+            }
+          ]
+        }
+      ],
+      "rank": 5
+    },
+    {
+      "author": "robbie-c",
+      "score": 14,
+      "reviewed_initiative_count": 3,
+      "counted_initiatives": [
+        {
+          "initiative": "Improve screenshot scrubbing and redaction preservation",
+          "author": "robbie-c",
+          "prs": [
+            73643
+          ],
+          "category": "security_privacy",
+          "outcome_strength": 3,
+          "reach": 2,
+          "reason": "Addresses text privacy in image scrubbing while enabling parallel execution.",
+          "evidence": "Worker-pool configuration, compositing changes and storage-scale redaction assertions inspected.",
+          "reported_result": null,
+          "verification": "Relevant diff excerpts and regression assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "No guarantee that all sensitive content is detected. Workers increase memory use; leakage rate and throughput not independently measured.",
+          "score": 5,
+          "sources": [
+            {
+              "number": 73643,
+              "title": "perf(replay): parallelise the image scrub, and close a 4K text leak",
+              "url": "https://github.com/PostHog/posthog/pull/73643",
+              "merged_at": "2026-07-25T14:18:22Z"
+            }
+          ]
+        },
+        {
+          "initiative": "Stop native async tasks retaining completed tracing contexts",
+          "author": "robbie-c",
+          "prs": [
+            110220
+          ],
+          "category": "reliability",
+          "outcome_strength": 3,
+          "reach": 2,
+          "reason": "Addresses per-message retained async work that accumulates heap pressure in ML mirror processing.",
+          "evidence": "Neon release-profile override and WeakRef garbage-collection regression assertion inspected.",
+          "reported_result": null,
+          "verification": "Relevant implementation excerpts and regression assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "Root cause and improvement are supported by the patch, not an independently reproduced production memory profile.",
+          "score": 5,
+          "sources": [
+            {
+              "number": 110220,
+              "title": "fix(ai-research): stop leaking an async work per neon task",
+              "url": "https://github.com/PostHog/posthog/pull/110220",
+              "merged_at": "2026-10-01T19:08:47Z"
+            }
+          ]
+        },
+        {
+          "initiative": "Keep inference serving recoverable across child exits and restarts",
+          "author": "robbie-c",
+          "prs": [
+            106211
+          ],
+          "category": "reliability",
+          "outcome_strength": 3,
+          "reach": 1,
+          "reason": "Addresses an inference container remaining down after a clean child exit and repeated startup work.",
+          "evidence": "Child-exit status handling, signal guards, persistent compile caches and entrypoint assertions inspected.",
+          "reported_result": null,
+          "verification": "Relevant implementation excerpts and regression assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "Specific serving package; GPU timing and production availability effects not independently verified.",
+          "score": 4,
+          "sources": [
+            {
+              "number": 106211,
+              "title": "fix(ml_inference): verify weights once, fail on any child exit, keep compile caches on the volume",
+              "url": "https://github.com/PostHog/posthog/pull/106211",
+              "merged_at": "2026-09-24T20:28:20Z"
+            }
+          ]
+        }
+      ],
+      "rank": 5
+    },
+    {
+      "author": "frankh",
+      "score": 13,
+      "reviewed_initiative_count": 3,
+      "counted_initiatives": [
+        {
+          "initiative": "Reduce shared backend startup overhead",
+          "author": "frankh",
+          "prs": [
+            105006
+          ],
+          "category": "engineering_enablement",
+          "outcome_strength": 2,
+          "reach": 3,
+          "reason": "Reduces repeated startup work across backend processes and developer commands.",
+          "evidence": "Diff defers heavy imports, adds image-build bytecode compilation, and extends startup import guards.",
+          "reported_result": "Author reports local django.setup time falling from about 1.95 seconds to about 1.5 seconds.",
+          "verification": "Relevant implementation and invariant changes inspected; timings not independently reproduced.",
+          "limitations": "Some import cost moves to first use. Bytecode increases image size. Production improvement is not independently established.",
+          "score": 5,
+          "sources": [
+            {
+              "number": 105006,
+              "title": "chore(startup): defer heavy imports off the django.setup() path",
+              "url": "https://github.com/PostHog/posthog/pull/105006",
+              "merged_at": "2026-09-28T10:12:02Z"
+            }
+          ]
+        },
+        {
+          "initiative": "Consolidate metrics overview table scans",
+          "author": "frankh",
+          "prs": [
+            110065
+          ],
+          "category": "performance",
+          "outcome_strength": 2,
+          "reach": 2,
+          "reason": "Avoids competing repeated scans while retaining overview totals.",
+          "evidence": "Services rollup, smaller metric-name query, bounded freshness fallback and rollup assertions inspected.",
+          "reported_result": null,
+          "verification": "Relevant diff excerpts and regression assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "User-perceived production latency not independently measured.",
+          "score": 4,
+          "sources": [
+            {
+              "number": 110065,
+              "title": "perf(metrics): read metric_series once per overview load",
+              "url": "https://github.com/PostHog/posthog/pull/110065",
+              "merged_at": "2026-10-01T15:22:34Z"
+            }
+          ]
+        },
+        {
+          "initiative": "Use rollups for large-project logs facets",
+          "author": "frankh",
+          "prs": [
+            98430
+          ],
+          "category": "customer_value",
+          "outcome_strength": 2,
+          "reach": 2,
+          "reason": "Makes common facet reads avoid full raw-log scans and their read limits.",
+          "evidence": "Rollup query path, person/session fallback and date-bucket regression assertion inspected.",
+          "reported_result": null,
+          "verification": "Relevant implementation excerpts and regression assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "Rollup facets ignore some body/attribute filters and may return partial results at read caps; not exact equivalence for all filters.",
+          "score": 4,
+          "sources": [
+            {
+              "number": 98430,
+              "title": "perf(logs): serve severity and service facets from the logs_volume_buckets rollup",
+              "url": "https://github.com/PostHog/posthog/pull/98430",
+              "merged_at": "2026-10-07T12:53:12Z"
+            }
+          ]
+        }
+      ],
+      "rank": 8
+    },
+    {
+      "author": "kyleswank",
+      "score": 10,
+      "reviewed_initiative_count": 2,
+      "counted_initiatives": [
+        {
+          "initiative": "Faster warehouse sources page",
+          "author": "kyleswank",
+          "prs": [
+            86737
+          ],
+          "category": "performance",
+          "outcome_strength": 3,
+          "reach": 2,
+          "reason": "Reduces expensive schema serialization and duplicate fetching on the sources list.",
+          "evidence": "Trimmed list serializer, conditional credential joins, adaptive polling, and query-count regression assertions inspected.",
+          "reported_result": "Author reports local 18,000-schema median falling from 3,676 ms to 1,184 ms.",
+          "verification": "Relevant diff excerpts and test assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "Local benchmark is not a verified production speedup; deployed before/after was not reported.",
+          "score": 5,
+          "sources": [
+            {
+              "number": 86737,
+              "title": "fix(data-warehouse): cut sources list load for large-schema projects",
+              "url": "https://github.com/PostHog/posthog/pull/86737",
+              "merged_at": "2026-08-21T14:30:21Z"
+            }
+          ]
+        },
+        {
+          "initiative": "Move long SQL parsing off the editor UI thread",
+          "author": "kyleswank",
+          "prs": [
+            80144
+          ],
+          "category": "customer_value",
+          "outcome_strength": 3,
+          "reach": 2,
+          "reason": "Addresses editor freezes on long queries and repeated parsing of unchanged text.",
+          "evidence": "Parser worker, manager dispatch, build wiring, fallback and browser performance test additions inspected.",
+          "reported_result": null,
+          "verification": "Relevant diff excerpts and regression assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "Fallback can still run on the main thread; reported browser timings were not independently reproduced.",
+          "score": 5,
+          "sources": [
+            {
+              "number": 80144,
+              "title": "perf(sql-editor): stop long queries freezing the editor on every keystroke",
+              "url": "https://github.com/PostHog/posthog/pull/80144",
+              "merged_at": "2026-08-11T07:59:39Z"
+            }
+          ]
+        }
+      ],
+      "rank": 9
+    },
+    {
+      "author": "a-lider",
+      "score": 5,
+      "reviewed_initiative_count": 1,
+      "counted_initiatives": [
+        {
+          "initiative": "Block restricted queries added to publicly shared dashboards",
+          "author": "a-lider",
+          "prs": [
+            97662
+          ],
+          "category": "security_privacy",
+          "outcome_strength": 3,
+          "reach": 2,
+          "reason": "Closes an edit path that could publish warehouse data the editor cannot access.",
+          "evidence": "Incoming query is passed to the sharing gate; regression assertions cover rejection, no new tile, and unchanged stored query.",
+          "reported_result": null,
+          "verification": "Relevant diff excerpts and test assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "No evidence of exploitation or affected population; tests were inspected rather than executed.",
+          "score": 5,
+          "sources": [
+            {
+              "number": 97662,
+              "title": "fix(sharing): gate the incoming query when a patch adds an insight to a shared dashboard",
+              "url": "https://github.com/PostHog/posthog/pull/97662",
+              "merged_at": "2026-09-18T12:51:29Z"
+            }
+          ]
+        }
+      ],
+      "rank": 10
+    },
+    {
+      "author": "danielcarletti",
+      "score": 5,
+      "reviewed_initiative_count": 1,
+      "counted_initiatives": [
+        {
+          "initiative": "Preserve unchanged PostgreSQL values during warehouse replication",
+          "author": "danielcarletti",
+          "prs": [
+            72435
+          ],
+          "category": "reliability",
+          "outcome_strength": 3,
+          "reach": 2,
+          "reason": "Addresses silent corruption of unchanged large text and JSON values in PostgreSQL CDC imports.",
+          "evidence": "Diff distinguishes omitted values from explicit NULL and restores values from batch or existing warehouse state. Regression tests cover enrichment and decoding.",
+          "reported_result": null,
+          "verification": "Relevant implementation and tests inspected; tests not executed.",
+          "limitations": "Affected customer count is unknown. Values cannot be recovered when prior state is unavailable.",
+          "score": 5,
+          "sources": [
+            {
+              "number": 72435,
+              "title": "fix(data-warehouse): preserve unchanged TOAST columns in postgres CDC updates",
+              "url": "https://github.com/PostHog/posthog/pull/72435",
+              "merged_at": "2026-07-22T13:21:52Z"
+            }
+          ]
+        }
+      ],
+      "rank": 10
+    },
+    {
+      "author": "MattPua",
+      "score": 5,
+      "reviewed_initiative_count": 1,
+      "counted_initiatives": [
+        {
+          "initiative": "Reduce sidebar resize rendering overhead",
+          "author": "MattPua",
+          "prs": [
+            118732
+          ],
+          "category": "performance",
+          "outcome_strength": 2,
+          "reach": 3,
+          "reason": "Improves responsiveness of shared application navigation and its resizer.",
+          "evidence": "Inspected animation-frame batching, final-release handling, frame cancellation, scoped CSS variables and resize regression assertions.",
+          "reported_result": "Author reports local Chromium drag measurements improving from 14–15 to 59–60 FPS, with p95 frame time falling from 83–100 ms to 17.6 ms at a specified development viewport.",
+          "verification": "Relevant code and regression assertions inspected; browser benchmarks not independently reproduced.",
+          "limitations": "Local development benchmark only. Other resizer consumers and cross-browser production performance are not established.",
+          "score": 5,
+          "sources": [
+            {
+              "number": 118732,
+              "title": "perf(navigation): improve sidebar resize performance",
+              "url": "https://github.com/PostHog/posthog/pull/118732",
+              "merged_at": "2026-10-16T19:08:46Z"
+            }
+          ]
+        }
+      ],
+      "rank": 10
+    },
+    {
+      "author": "pl",
+      "score": 5,
+      "reviewed_initiative_count": 1,
+      "counted_initiatives": [
+        {
+          "initiative": "Skip ineffective rate-limit work for already-restricted events",
+          "author": "pl",
+          "prs": [
+            83013
+          ],
+          "category": "performance",
+          "outcome_strength": 2,
+          "reach": 3,
+          "reason": "Removes unnecessary work in both capture analytics paths for an eligible class of events.",
+          "evidence": "Early skip conditions, telemetry and changed routing assertions inspected.",
+          "reported_result": null,
+          "verification": "Relevant diff excerpts and regression assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "Changes overflow routing for affected v0 events; no measured throughput gain established.",
+          "score": 5,
+          "sources": [
+            {
+              "number": 83013,
+              "title": "perf(capture): skip the global rate limiter when person processing is off",
+              "url": "https://github.com/PostHog/posthog/pull/83013",
+              "merged_at": "2026-08-14T15:37:59Z"
+            }
+          ]
+        }
+      ],
+      "rank": 10
+    },
+    {
+      "author": "rafaeelaudibert",
+      "score": 5,
+      "reviewed_initiative_count": 1,
+      "counted_initiatives": [
+        {
+          "initiative": "Batch weekly digest reads and cache operations",
+          "author": "rafaeelaudibert",
+          "prs": [
+            104658
+          ],
+          "category": "reliability",
+          "outcome_strength": 3,
+          "reach": 2,
+          "reason": "Addresses a digest pipeline described as missing its generation time budget.",
+          "evidence": "Range-level query refactor, bounded Redis pipelines and fixed-query-count regression assertions inspected.",
+          "reported_result": null,
+          "verification": "Relevant diff excerpts and regression assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "One layer of a larger stack; successful resumed delivery was not independently verified.",
+          "score": 5,
+          "sources": [
+            {
+              "number": 104658,
+              "title": "perf(weekly-digest): query each team range once per generator",
+              "url": "https://github.com/PostHog/posthog/pull/104658",
+              "merged_at": "2026-09-23T21:39:50Z"
+            }
+          ]
+        }
+      ],
+      "rank": 10
+    },
+    {
+      "author": "richardsolomou",
+      "score": 5,
+      "reviewed_initiative_count": 1,
+      "counted_initiatives": [
+        {
+          "initiative": "Harden MCP execution boundaries and upstream responses",
+          "author": "richardsolomou",
+          "prs": [
+            118401
+          ],
+          "category": "security_privacy",
+          "outcome_strength": 3,
+          "reach": 2,
+          "reason": "Enforces connection restrictions across execution paths and bounds upstream responses.",
+          "evidence": "Store-mode restrictions, registry checks, tool filtering, response byte caps, timeout parameters, and regression assertions inspected.",
+          "reported_result": null,
+          "verification": "Relevant implementation excerpts and regression assertions inspected; tests not independently executed.",
+          "limitations": "Deployment ordering required; production outcomes not verified. Earlier work by VojtechBartos in #105115 and #108149 is credited separately.",
+          "score": 5,
+          "sources": [
+            {
+              "number": 118401,
+              "title": "fix(mcp): enforce connection policies and bound upstream responses",
+              "url": "https://github.com/PostHog/posthog/pull/118401",
+              "merged_at": "2026-10-17T10:06:06Z"
+            }
+          ]
+        }
+      ],
+      "rank": 10
+    },
+    {
+      "author": "skoob13",
+      "score": 5,
+      "reviewed_initiative_count": 1,
+      "counted_initiatives": [
+        {
+          "initiative": "Give non-admin users a working AI access request path",
+          "author": "skoob13",
+          "prs": [
+            92249
+          ],
+          "category": "customer_value",
+          "outcome_strength": 3,
+          "reach": 2,
+          "reason": "Replaces a dead-end consent control with an actionable request to administrators.",
+          "evidence": "Homepage uses a shared request component; member-level regression test clicks Request access and expects Request sent.",
+          "reported_result": null,
+          "verification": "Relevant diff excerpts and test assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "No verified adoption or conversion improvement; manual browser validation was not performed by this analysis.",
+          "score": 5,
+          "sources": [
+            {
+              "number": 92249,
+              "title": "fix(posthog-ai): unblock non-admins at the AI consent gate",
+              "url": "https://github.com/PostHog/posthog/pull/92249",
+              "merged_at": "2026-09-01T12:53:01Z"
+            }
+          ]
+        }
+      ],
+      "rank": 10
+    },
+    {
+      "author": "VojtechBartos",
+      "score": 5,
+      "reviewed_initiative_count": 1,
+      "counted_initiatives": [
+        {
+          "initiative": "Refresh MCP registrations and enforce locked organization rules",
+          "author": "VojtechBartos",
+          "prs": [
+            105115,
+            108149
+          ],
+          "category": "security_privacy",
+          "outcome_strength": 3,
+          "reach": 2,
+          "reason": "Restores policy-aware calls after stale listings and blocks self-approval of organization-locked actions.",
+          "evidence": "Missing-tool refresh, throttling, locked-rule resolution, conservative unlisted-tool handling, and regression assertions inspected.",
+          "reported_result": null,
+          "verification": "Relevant implementation excerpts and regression assertions inspected; tests not independently executed.",
+          "limitations": "Grouped as one initiative to avoid double counting. Subsequent hardening in #118401 belongs to richardsolomou. No measured production outcome verified.",
+          "score": 5,
+          "sources": [
+            {
+              "number": 105115,
+              "title": "fix(mcp-store): re-list tools when a gateway call names an unregistered one",
+              "url": "https://github.com/PostHog/posthog/pull/105115",
+              "merged_at": "2026-09-23T14:32:56Z"
+            },
+            {
+              "number": 108149,
+              "title": "fix(mcp): respect locked org rules in posthog ai mcp tool calls",
+              "url": "https://github.com/PostHog/posthog/pull/108149",
+              "merged_at": "2026-09-30T08:43:57Z"
+            }
+          ]
+        }
+      ],
+      "rank": 10
+    },
+    {
+      "author": "georgemunyoro",
+      "score": 4,
+      "reviewed_initiative_count": 1,
+      "counted_initiatives": [
+        {
+          "initiative": "Cache warehouse schema for SQL editor assistance",
+          "author": "georgemunyoro",
+          "prs": [
+            90911
+          ],
+          "category": "performance",
+          "outcome_strength": 2,
+          "reach": 2,
+          "reason": "Avoids repeated metadata fetching during autocomplete and error checking.",
+          "evidence": "Bounded TTL cache, single-flight fetching, request-specific access decisions, and isolation/expiry test assertions inspected.",
+          "reported_result": null,
+          "verification": "Relevant diff excerpts and test assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "Schema suggestions can lag changes by 60 seconds. User-perceived latency benefit was not independently measured.",
+          "score": 4,
+          "sources": [
+            {
+              "number": 90911,
+              "title": "perf(hogql): cache database sources for editor-assist queries",
+              "url": "https://github.com/PostHog/posthog/pull/90911",
+              "merged_at": "2026-09-08T17:28:27Z"
+            }
+          ]
+        }
+      ],
+      "rank": 18
+    },
+    {
+      "author": "haacked",
+      "score": 4,
+      "reviewed_initiative_count": 1,
+      "counted_initiatives": [
+        {
+          "initiative": "Preserve local development data and diagnose port conflicts",
+          "author": "haacked",
+          "prs": [
+            73306
+          ],
+          "category": "engineering_enablement",
+          "outcome_strength": 2,
+          "reach": 2,
+          "reason": "Reduces destructive local-stack recovery and helps diagnose blocked developer setup.",
+          "evidence": "Named ClickHouse/ZooKeeper volumes, migration guidance, port diagnostics, and related test assertions inspected.",
+          "reported_result": null,
+          "verification": "Relevant diff excerpts and test assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "Concerns local developer data, not customer production data. Migration can reset data when old volumes cannot be identified safely.",
+          "score": 4,
+          "sources": [
+            {
+              "number": 73306,
+              "title": "fix(dev): survive dev-stack port collisions and stop silent zookeeper data loss",
+              "url": "https://github.com/PostHog/posthog/pull/73306",
+              "merged_at": "2026-07-25T05:47:08Z"
+            }
+          ]
+        }
+      ],
+      "rank": 18
+    },
+    {
+      "author": "jzhu13",
+      "score": 4,
+      "reviewed_initiative_count": 1,
+      "counted_initiatives": [
+        {
+          "initiative": "Implement a resumable Loki log import engine",
+          "author": "jzhu13",
+          "prs": [
+            105591
+          ],
+          "category": "customer_value",
+          "outcome_strength": 2,
+          "reach": 2,
+          "reason": "Turns validated import configuration into an executable log migration path.",
+          "evidence": "CLI run path, checkpoint modules, mapping/emission code, retention confirmation, and associated test additions inspected.",
+          "reported_result": null,
+          "verification": "Relevant diff excerpts and test assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "Experimental CLI; retention and team enablement constrain usable imports. Successful customer migrations were not independently verified.",
+          "score": 4,
+          "sources": [
+            {
+              "number": 105591,
+              "title": "feat(logs): add the Loki import engine",
+              "url": "https://github.com/PostHog/posthog/pull/105591",
+              "merged_at": "2026-10-10T00:17:01Z"
+            }
+          ]
+        }
+      ],
+      "rank": 18
+    },
+    {
+      "author": "lucasheriques",
+      "score": 4,
+      "reviewed_initiative_count": 1,
+      "counted_initiatives": [
+        {
+          "initiative": "Expose missing MCP capabilities to server builders",
+          "author": "lucasheriques",
+          "prs": [
+            79181
+          ],
+          "category": "customer_value",
+          "outcome_strength": 2,
+          "reach": 2,
+          "reason": "Makes captured requests for missing capabilities inspectable through a report feed.",
+          "evidence": "Query implementation provides date/search filtering and pagination; report-return regression assertions inspected.",
+          "reported_result": null,
+          "verification": "Relevant diff excerpts and test assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "No measured evidence that builders acted on reports or improved their servers.",
+          "score": 4,
+          "sources": [
+            {
+              "number": 79181,
+              "title": "feat(mcp-analytics): surface missing capability reports",
+              "url": "https://github.com/PostHog/posthog/pull/79181",
+              "merged_at": "2026-08-31T17:35:54Z"
+            }
+          ]
+        }
+      ],
+      "rank": 18
+    },
+    {
+      "author": "ReeceJones",
+      "score": 4,
+      "reviewed_initiative_count": 1,
+      "counted_initiatives": [
+        {
+          "initiative": "Add resource and object access controls for Replay Vision",
+          "author": "ReeceJones",
+          "prs": [
+            69742
+          ],
+          "category": "security_privacy",
+          "outcome_strength": 2,
+          "reach": 2,
+          "reason": "Enables explicit sharing and access restrictions for scanners and their actions.",
+          "evidence": "Scanner access-control mixins and default-denial, viewer-write denial, and object-grant test assertions inspected.",
+          "reported_result": null,
+          "verification": "Relevant diff excerpts and test assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "Represents a product authorization capability; no claim of an exploited vulnerability or measured customer uptake.",
+          "score": 4,
+          "sources": [
+            {
+              "number": 69742,
+              "title": "feat(replay-vision): add access control support for scanners and actions",
+              "url": "https://github.com/PostHog/posthog/pull/69742",
+              "merged_at": "2026-07-22T09:57:01Z"
+            }
+          ]
+        }
+      ],
+      "rank": 18
+    },
+    {
+      "author": "TueHaulund",
+      "score": 4,
+      "reviewed_initiative_count": 1,
+      "counted_initiatives": [
+        {
+          "initiative": "Reduce avoidable waits during scanner drafting",
+          "author": "TueHaulund",
+          "prs": [
+            117360
+          ],
+          "category": "performance",
+          "outcome_strength": 2,
+          "reach": 2,
+          "reason": "Parallelizes reads and avoids retrying already-slow model failures.",
+          "evidence": "Concurrency helpers, retry duration gate, thinking budget and associated assertions inspected.",
+          "reported_result": null,
+          "verification": "Relevant diff excerpts and regression assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "No independently verified post-deployment speedup or quality comparison; model budget may affect output quality.",
+          "score": 4,
+          "sources": [
+            {
+              "number": 117360,
+              "title": "perf(replay-vision): cut the wait for a goal-based scanner draft",
+              "url": "https://github.com/PostHog/posthog/pull/117360",
+              "merged_at": "2026-10-15T11:12:58Z"
+            }
+          ]
+        }
+      ],
+      "rank": 18
+    },
+    {
+      "author": "webjunkie",
+      "score": 4,
+      "reviewed_initiative_count": 1,
+      "counted_initiatives": [
+        {
+          "initiative": "Let product teams declare their own Today highlight sources",
+          "author": "webjunkie",
+          "prs": [
+            118760
+          ],
+          "category": "engineering_enablement",
+          "outcome_strength": 2,
+          "reach": 2,
+          "reason": "Provides a shared extension contract so producers can add highlights without editing Today internals.",
+          "evidence": "Inspected product module discovery, typed source contracts, legacy compatibility, duplicate-name rejection and invalid-declaration test assertions.",
+          "reported_result": null,
+          "verification": "Relevant implementation and regression assertions inspected; tests not independently executed.",
+          "limitations": "Existing source migration remains a follow-up. No measured engineering time savings or user-visible ranking improvement is established.",
+          "score": 4,
+          "sources": [
+            {
+              "number": 118760,
+              "title": "chore(devex): let products declare their own today highlight sources",
+              "url": "https://github.com/PostHog/posthog/pull/118760",
+              "merged_at": "2026-10-16T19:31:12Z"
+            }
+          ]
+        }
+      ],
+      "rank": 18
+    },
+    {
+      "author": "thmsobrmlr",
+      "score": 3,
+      "reviewed_initiative_count": 1,
+      "counted_initiatives": [
+        {
+          "initiative": "Create the product analytics facade for isolation work",
+          "author": "thmsobrmlr",
+          "prs": [
+            85148
+          ],
+          "category": "engineering_enablement",
+          "outcome_strength": 1,
+          "reach": 2,
+          "reason": "Establishes explicit integration boundaries needed by a later product-isolation rollout.",
+          "evidence": "Facade modules, model exports, moved helpers, and architecture allowance inspected.",
+          "reported_result": null,
+          "verification": "Relevant diff excerpts and test assertions inspected; tests and benchmarks not independently executed.",
+          "limitations": "This PR is groundwork. Do not attribute the later isolation rollout or a realized CI speedup to this PR alone.",
+          "score": 3,
+          "sources": [
+            {
+              "number": 85148,
+              "title": "feat(product-analytics): add facade and watched-models allowance",
+              "url": "https://github.com/PostHog/posthog/pull/85148",
+              "merged_at": "2026-08-19T12:05:32Z"
+            }
+          ]
+        }
+      ],
+      "rank": 25
+    }
+  ],
+  "sensitivity": {
+    "outcome_focused": [
+      {
+        "author": "jose-sequeira",
+        "rank": 1
+      },
+      {
+        "author": "yasen-posthog",
+        "rank": 1
+      },
+      {
+        "author": "lricoy",
+        "rank": 3
+      },
+      {
+        "author": "rnegron",
+        "rank": 3
+      },
+      {
+        "author": "robbie-c",
+        "rank": 5
+      },
+      {
+        "author": "Gilbert09",
+        "rank": 6
+      },
+      {
+        "author": "pauldambra",
+        "rank": 7
+      },
+      {
+        "author": "frankh",
+        "rank": 8
+      },
+      {
+        "author": "kyleswank",
+        "rank": 9
+      },
+      {
+        "author": "a-lider",
+        "rank": 10
+      },
+      {
+        "author": "danielcarletti",
+        "rank": 10
+      },
+      {
+        "author": "rafaeelaudibert",
+        "rank": 10
+      },
+      {
+        "author": "richardsolomou",
+        "rank": 10
+      },
+      {
+        "author": "skoob13",
+        "rank": 10
+      },
+      {
+        "author": "VojtechBartos",
+        "rank": 10
+      },
+      {
+        "author": "MattPua",
+        "rank": 16
+      },
+      {
+        "author": "pl",
+        "rank": 16
+      },
+      {
+        "author": "georgemunyoro",
+        "rank": 18
+      },
+      {
+        "author": "haacked",
+        "rank": 18
+      },
+      {
+        "author": "jzhu13",
+        "rank": 18
+      },
+      {
+        "author": "lucasheriques",
+        "rank": 18
+      },
+      {
+        "author": "ReeceJones",
+        "rank": 18
+      },
+      {
+        "author": "TueHaulund",
+        "rank": 18
+      },
+      {
+        "author": "webjunkie",
+        "rank": 18
+      },
+      {
+        "author": "thmsobrmlr",
+        "rank": 25
+      }
+    ],
+    "reach_focused": [
+      {
+        "author": "jose-sequeira",
+        "rank": 1
+      },
+      {
+        "author": "yasen-posthog",
+        "rank": 1
+      },
+      {
+        "author": "rnegron",
+        "rank": 3
+      },
+      {
+        "author": "pauldambra",
+        "rank": 4
+      },
+      {
+        "author": "lricoy",
+        "rank": 5
+      },
+      {
+        "author": "frankh",
+        "rank": 6
+      },
+      {
+        "author": "Gilbert09",
+        "rank": 6
+      },
+      {
+        "author": "robbie-c",
+        "rank": 8
+      },
+      {
+        "author": "kyleswank",
+        "rank": 9
+      },
+      {
+        "author": "MattPua",
+        "rank": 10
+      },
+      {
+        "author": "pl",
+        "rank": 10
+      },
+      {
+        "author": "a-lider",
+        "rank": 12
+      },
+      {
+        "author": "danielcarletti",
+        "rank": 12
+      },
+      {
+        "author": "rafaeelaudibert",
+        "rank": 12
+      },
+      {
+        "author": "richardsolomou",
+        "rank": 12
+      },
+      {
+        "author": "skoob13",
+        "rank": 12
+      },
+      {
+        "author": "VojtechBartos",
+        "rank": 12
+      },
+      {
+        "author": "georgemunyoro",
+        "rank": 18
+      },
+      {
+        "author": "haacked",
+        "rank": 18
+      },
+      {
+        "author": "jzhu13",
+        "rank": 18
+      },
+      {
+        "author": "lucasheriques",
+        "rank": 18
+      },
+      {
+        "author": "ReeceJones",
+        "rank": 18
+      },
+      {
+        "author": "TueHaulund",
+        "rank": 18
+      },
+      {
+        "author": "webjunkie",
+        "rank": 18
+      },
+      {
+        "author": "thmsobrmlr",
+        "rank": 25
+      }
+    ],
+    "limitation": "Only tests weights within reviewed evidence; does not correct selection or review-depth bias."
+  }
+}
