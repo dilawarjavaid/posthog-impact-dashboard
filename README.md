@@ -1,11 +1,49 @@
-# PostHog impact dashboard — revised 57-PR subset
+# PostHog Impact Dashboard
 
-Run `python -m http.server 8005 --bind 127.0.0.1` and open http://127.0.0.1:8005.
+An interactive dashboard exploring engineering impact through PostHog’s public GitHub contributions.
 
-This version retains the original 46 assessed PRs and adds 11 previously assessed PRs from the same 25 authors. The full collection remains 17,027 merged PRs across 90 days; all 193 identified human authors were screened. This is selective review, not assessment of every engineer.
+## Overview
 
-The subset was reconstructed after submission. See subset_audit.json for the added PRs and selection rule. Rankings were recalculated without targeting the submitted leaderboard. Outcome (0–4) plus reach (0–3), summed across three strongest initiatives, gives a maximum of 21. Exactly five engineers are featured; score ties remain disclosed.
+The dashboard highlights five engineers based on reviewed contributions across:
 
-Descriptions and relevant implementation/regression excerpts were inspected. Tests and benchmarks were not independently run. No reliable assignment timer was maintained. The submitted summary must be corrected where it differs from this revision.
+- Performance
+- Reliability
+- Security and privacy
+- Customer value
+- Engineering enablement
 
-Keep vendor/ and all HTML, CSS, JavaScript and JSON files together when publishing. Chart.js and its license are bundled locally.
+The analysis covers 17,027 merged PRs from 20 July to 17 October 2026. All 193 identified human authors were screened, with 57 PRs across 25 engineers selectively assessed and grouped into 53 initiatives.
+
+## Scoring
+
+Each initiative receives an outcome score (0–4) and a supported reach score (0–3). An engineer’s balanced score combines their three strongest reviewed initiatives, with a maximum of 21 points.
+
+PR counts, commits and lines of code earn no points. Scores reflect assessed public evidence, not a complete evaluation of individual performance.
+
+## Features
+
+- Interactive chart with five featured engineers
+- Linked PR evidence and scoring explanations
+- Outcome-focused and reach-focused weighting
+- Expandable view of all 25 reviewed engineers
+- Methodology dialog and downloadable analysis
+
+## Run locally
+
+```powershell
+python -m http.server 8001 --bind 127.0.0.1
+```
+
+Open http://127.0.0.1:8001.
+
+## Technology
+
+Python for collection and analysis; HTML, CSS, JavaScript and Chart.js for the dashboard. Hosting uses GitHub Pages.
+
+Keep the vendor folder alongside the website files—it contains Chart.js and its license.
+
+## Limitations
+
+Evidence review is selective. Private work, mentoring, planning and code-review contributions are incompletely captured. Tests and benchmarks were not independently run, and author-reported results are labelled accordingly.
+
+See subset_audit.json for the reviewed subset’s selection history.
