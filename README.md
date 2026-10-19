@@ -38,12 +38,5 @@ Open http://127.0.0.1:8001.
 
 ## Technology
 
-Python for collection and analysis; HTML, CSS, JavaScript and Chart.js for the dashboard. Hosting uses GitHub Pages.
+Python for collection and analysis; HTML, CSS, JavaScript and Chart.js for the dashboard. Hosting uses GitHub Pages
 
-Keep the vendor folder alongside the website files—it contains Chart.js and its license.
-
-## Limitations
-
-Evidence review is selective. Private work, mentoring, planning and code-review contributions are incompletely captured. Tests and benchmarks were not independently run, and author-reported results are labelled accordingly.
-
-See subset_audit.json for the reviewed subset’s selection history.
