@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="An evidence-led review of engineering impact in PostHog's public GitHub contributions.">
   <title>PostHog · Engineering impact</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="impact-chart-101.css?v=3">
+  <script src="vendor/chart.umd.min.js" defer></script>
+  <script src="impact-chart-101.js" defer></script>
 </head>
 <body>
   <main class="shell">
@@ -17,10 +18,13 @@
     <section class="stats" aria-label="Analysis coverage" id="stats"><p>Loading validated data…</p></section>
     <section class="workspace">
       <section class="leaderboard" aria-label="Engineer leaderboard">
-        <div class="section-top"><div><p class="eyebrow">THE SHORTLIST</p><h2>Five leading positions</h2></div><button id="show-all" class="text-button">All reviewed</button></div>
-        <label for="priority">Leadership priority</label><select id="priority"><option value="balanced">Balanced · outcome + reach</option><option value="outcome">Outcome focused · 2× outcome + reach</option><option value="reach">Reach focused · outcome + 2× reach</option></select>
-        <div class="list" id="engineers" aria-label="Select an engineer"></div>
-        <p class="tie-note" id="tie-note"></p>
+        <div class="section-top"><div><p class="eyebrow">THE TOP 5</p><h2>Who had the most impact</h2></div>
+          <div class="priority"><label for="priority">Leadership priority</label><select id="priority"><option value="balanced">Balanced · outcome + reach</option><option value="outcome">Outcome focused · 2× outcome</option><option value="reach">Reach focused · 2× reach</option></select></div></div>
+        <p class="chart-help">Each bar is an engineer's <strong>3 strongest initiatives</strong>. Segment length = outcome + reach points; colour = type of work. <strong>Click a bar</strong> to see the evidence.</p>
+        <div class="legend" id="chart-legend" aria-label="Colour key"></div>
+        <div class="chart-panel" id="chart-panel"><div class="chart-box" id="chart-box"><canvas id="impact-chart" tabindex="0" role="img"></canvas></div></div>
+        <div class="list" id="engineers" aria-label="Select an engineer" hidden></div>
+        <div class="leaderboard-foot"><p class="tie-note" id="tie-note"></p><button id="show-all" class="text-button">All reviewed</button></div>
       </section>
       <section class="detail" id="detail" aria-live="polite"><p>Select an engineer to explore the evidence.</p></section>
     </section>

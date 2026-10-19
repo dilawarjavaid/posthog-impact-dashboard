@@ -1,0 +1,581 @@
+{
+  "unmatched_audit_sample": [
+    {
+      "number": 83113,
+      "author": "arnohillen",
+      "title": "feat(replay-vision): warn when the current config version has scanned nothing",
+      "url": "https://github.com/PostHog/posthog/pull/83113"
+    },
+    {
+      "number": 90395,
+      "author": "arnohillen",
+      "title": "fix(endpoints): report clipboard copy failures on copy buttons",
+      "url": "https://github.com/PostHog/posthog/pull/90395"
+    },
+    {
+      "number": 115294,
+      "author": "webjunkie",
+      "title": "feat(review_hog): react while reviewing, drop the Standard status comment",
+      "url": "https://github.com/PostHog/posthog/pull/115294"
+    },
+    {
+      "number": 114335,
+      "author": "thmsobrmlr",
+      "title": "chore(actions): add two selector regex matching cases",
+      "url": "https://github.com/PostHog/posthog/pull/114335"
+    },
+    {
+      "number": 78862,
+      "author": "tatoalo",
+      "title": "fix(tasks): prewarm repo-less cloud tasks",
+      "url": "https://github.com/PostHog/posthog/pull/78862"
+    },
+    {
+      "number": 88154,
+      "author": "nickbest-ph",
+      "title": "fix(capture): report live queue bytes in producer queue bytes gauge",
+      "url": "https://github.com/PostHog/posthog/pull/88154"
+    },
+    {
+      "number": 88026,
+      "author": "robbie-c",
+      "title": "feat(session-replay): batch image fetch republishes",
+      "url": "https://github.com/PostHog/posthog/pull/88026"
+    },
+    {
+      "number": 107612,
+      "author": "ablaszkiewicz",
+      "title": "fix(error-tracking): show wizard while waiting for first exception",
+      "url": "https://github.com/PostHog/posthog/pull/107612"
+    },
+    {
+      "number": 81042,
+      "author": "pauldambra",
+      "title": "fix(insights): fill the date variable popover with the calendar",
+      "url": "https://github.com/PostHog/posthog/pull/81042"
+    },
+    {
+      "number": 71983,
+      "author": "rnegron",
+      "title": "chore(docs): objectstorage is seaweedfs, not minio",
+      "url": "https://github.com/PostHog/posthog/pull/71983"
+    },
+    {
+      "number": 93449,
+      "author": "jurajmajerik",
+      "title": "fix(experiments): register enrollment census workflow on general-purpose queue",
+      "url": "https://github.com/PostHog/posthog/pull/93449"
+    },
+    {
+      "number": 81416,
+      "author": "dmarticus",
+      "title": "feat(canvas): pass SQL variables through ph.loadInsight",
+      "url": "https://github.com/PostHog/posthog/pull/81416"
+    },
+    {
+      "number": 115263,
+      "author": "tatoalo",
+      "title": "fix(agent): resend a declined budget steer while the turn runs",
+      "url": "https://github.com/PostHog/posthog/pull/115263"
+    },
+    {
+      "number": 104448,
+      "author": "pauldambra",
+      "title": "fix(insights): select the current series in the picker",
+      "url": "https://github.com/PostHog/posthog/pull/104448"
+    },
+    {
+      "number": 90209,
+      "author": "andrewm4894",
+      "title": "fix(signals): raise inbox ranking dag run-pod memory to 16Gi",
+      "url": "https://github.com/PostHog/posthog/pull/90209"
+    },
+    {
+      "number": 76513,
+      "author": "VojtechBartos",
+      "title": "fix(slack_app): skip user resolution for Slack's U00 placeholder author",
+      "url": "https://github.com/PostHog/posthog/pull/76513"
+    },
+    {
+      "number": 92381,
+      "author": "rorylshanks",
+      "title": "fix(usage): place billing usage storage on aux",
+      "url": "https://github.com/PostHog/posthog/pull/92381"
+    },
+    {
+      "number": 80610,
+      "author": "sakce",
+      "title": "fix(data-modeling): stop running nodes whose query was deleted",
+      "url": "https://github.com/PostHog/posthog/pull/80610"
+    },
+    {
+      "number": 82722,
+      "author": "puemos",
+      "title": "feat(tasks): send comment slack dms to the task in the desktop app",
+      "url": "https://github.com/PostHog/posthog/pull/82722"
+    },
+    {
+      "number": 83972,
+      "author": "dmarticus",
+      "title": "feat(signals): record shadow canvas generations",
+      "url": "https://github.com/PostHog/posthog/pull/83972"
+    }
+  ],
+  "screened_authors": 193,
+  "purpose": "Pending evidence-review queue, not an impact ranking",
+  "limitations": [
+    "Descriptions are untrusted evidence, not proof of outcomes.",
+    "Well-documented work may be easier to discover.",
+    "Related initiatives need manual grouping before final scoring.",
+    "Screening all authors is not equivalent to reviewing all authors in depth.",
+    "Nominations remain provisional until the unmatched sample is reviewed."
+  ],
+  "screened_prs": 15003,
+  "nominees": [
+    {
+      "author": "Gilbert09",
+      "reasons": [
+        "Area discovery priority: customer_value",
+        "Current leading position: reassess on equal terms"
+      ],
+      "candidates": [
+        {
+          "number": 72631,
+          "title": "feat(data-warehouse): implement hightouch import source",
+          "url": "https://github.com/PostHog/posthog/pull/72631"
+        },
+        {
+          "number": 88224,
+          "title": "fix(egress): release the GitHub batch reserve on quiet installations",
+          "url": "https://github.com/PostHog/posthog/pull/88224"
+        },
+        {
+          "number": 92919,
+          "title": "perf(data-warehouse): stop the v3 load consumer paying per batch for table size",
+          "url": "https://github.com/PostHog/posthog/pull/92919"
+        }
+      ]
+    },
+    {
+      "author": "aspicer",
+      "reasons": [
+        "Area discovery priority: reliability",
+        "Area discovery priority: performance",
+        "Area discovery priority: security_privacy",
+        "Area discovery priority: engineering_enablement"
+      ],
+      "candidates": [
+        {
+          "number": 88183,
+          "title": "perf(insights): build the hogql database once per insight run",
+          "url": "https://github.com/PostHog/posthog/pull/88183"
+        },
+        {
+          "number": 86837,
+          "title": "feat(query-cache): delete replaced and evicted S3 blobs eagerly",
+          "url": "https://github.com/PostHog/posthog/pull/86837"
+        },
+        {
+          "number": 82910,
+          "title": "feat(query-cache): store large cached results in S3 behind a Redis pointer",
+          "url": "https://github.com/PostHog/posthog/pull/82910"
+        }
+      ]
+    },
+    {
+      "author": "robbie-c",
+      "reasons": [
+        "Overall capped discovery priority",
+        "Current leading position: reassess on equal terms"
+      ],
+      "candidates": [
+        {
+          "number": 73643,
+          "title": "perf(replay): parallelise the image scrub, and close a 4K text leak",
+          "url": "https://github.com/PostHog/posthog/pull/73643"
+        },
+        {
+          "number": 73732,
+          "title": "fix(replay): wait for a busy scrub sidecar, and park what it cannot process",
+          "url": "https://github.com/PostHog/posthog/pull/73732"
+        },
+        {
+          "number": 81188,
+          "title": "feat(ai-research): add the image fetch lane in dry run",
+          "url": "https://github.com/PostHog/posthog/pull/81188"
+        }
+      ]
+    },
+    {
+      "author": "frankh",
+      "reasons": [
+        "Overall capped discovery priority"
+      ],
+      "candidates": [
+        {
+          "number": 94428,
+          "title": "feat(kafka): add team skip, rate limit, and graceful stop to DLQ replay",
+          "url": "https://github.com/PostHog/posthog/pull/94428"
+        },
+        {
+          "number": 84547,
+          "title": "chore(ci): trace every master workflow run into PostHog",
+          "url": "https://github.com/PostHog/posthog/pull/84547"
+        },
+        {
+          "number": 77177,
+          "title": "feat(logs): suggest a name for new retention rules",
+          "url": "https://github.com/PostHog/posthog/pull/77177"
+        }
+      ]
+    },
+    {
+      "author": "danielcarletti",
+      "reasons": [
+        "Overall capped discovery priority"
+      ],
+      "candidates": [
+        {
+          "number": 91891,
+          "title": "fix(warehouse-sources): disable schemas on permanent v3 load failures",
+          "url": "https://github.com/PostHog/posthog/pull/91891"
+        },
+        {
+          "number": 76654,
+          "title": "feat(data-warehouse): classify suspected OOMs from workload self-reports",
+          "url": "https://github.com/PostHog/posthog/pull/76654"
+        },
+        {
+          "number": 91006,
+          "title": "feat(warehouse-sources): serve cdc_only and both table modes from the buffer",
+          "url": "https://github.com/PostHog/posthog/pull/91006"
+        }
+      ]
+    },
+    {
+      "author": "pauldambra",
+      "reasons": [
+        "Overall capped discovery priority",
+        "Current leading position: reassess on equal terms"
+      ],
+      "candidates": [
+        {
+          "number": 95749,
+          "title": "perf(taxonomy): search small projects through their own index",
+          "url": "https://github.com/PostHog/posthog/pull/95749"
+        },
+        {
+          "number": 83929,
+          "title": "fix(oauth): revoke refresh token families in constant queries on reuse detection",
+          "url": "https://github.com/PostHog/posthog/pull/83929"
+        },
+        {
+          "number": 108135,
+          "title": "fix(livestream): recheck current project membership",
+          "url": "https://github.com/PostHog/posthog/pull/108135"
+        }
+      ]
+    },
+    {
+      "author": "haacked",
+      "reasons": [
+        "Overall capped discovery priority"
+      ],
+      "candidates": [
+        {
+          "number": 112933,
+          "title": "fix(flags): fail group flags when the group type lookup fails",
+          "url": "https://github.com/PostHog/posthog/pull/112933"
+        },
+        {
+          "number": 113497,
+          "title": "fix(flags): limit how long the replica override upsert waits on a lock",
+          "url": "https://github.com/PostHog/posthog/pull/113497"
+        },
+        {
+          "number": 79218,
+          "title": "feat(flags): count hypercache verification runs that wind down early",
+          "url": "https://github.com/PostHog/posthog/pull/79218"
+        }
+      ]
+    },
+    {
+      "author": "z0br0wn",
+      "reasons": [
+        "Overall capped discovery priority"
+      ],
+      "candidates": [
+        {
+          "number": 74478,
+          "title": "chore(personhog): etcd resilience ",
+          "url": "https://github.com/PostHog/posthog/pull/74478"
+        },
+        {
+          "number": 75715,
+          "title": "fix(personhog): advance freezes on router departure and unblock shutdown teardown",
+          "url": "https://github.com/PostHog/posthog/pull/75715"
+        },
+        {
+          "number": 107052,
+          "title": "fix(ingestion): write persons per key and compute merges at delete",
+          "url": "https://github.com/PostHog/posthog/pull/107052"
+        }
+      ]
+    },
+    {
+      "author": "eli-r-ph",
+      "reasons": [
+        "Overall capped discovery priority"
+      ],
+      "candidates": [
+        {
+          "number": 86792,
+          "title": "fix(propdefs): keep the write pool off a demoted Aurora reader",
+          "url": "https://github.com/PostHog/posthog/pull/86792"
+        },
+        {
+          "number": 107014,
+          "title": "fix(capture): stop rate limiter blocking on evidence from failed reads",
+          "url": "https://github.com/PostHog/posthog/pull/107014"
+        },
+        {
+          "number": 103269,
+          "title": "feat(capture): route internal capture by $ai_ prefix and mount v1 AI lane locally",
+          "url": "https://github.com/PostHog/posthog/pull/103269"
+        }
+      ]
+    },
+    {
+      "author": "dmarchuk",
+      "reasons": [
+        "Overall capped discovery priority"
+      ],
+      "candidates": [
+        {
+          "number": 117210,
+          "title": "fix(notifications): hide notifications from projects the user cannot open",
+          "url": "https://github.com/PostHog/posthog/pull/117210"
+        },
+        {
+          "number": 78182,
+          "title": "feat(workflows): email admins on AWS SES tenant reputation changes",
+          "url": "https://github.com/PostHog/posthog/pull/78182"
+        },
+        {
+          "number": 114706,
+          "title": "fix(cdp): retry an apns send once with a new provider token after apple rejects it",
+          "url": "https://github.com/PostHog/posthog/pull/114706"
+        }
+      ]
+    },
+    {
+      "author": "bernatixer",
+      "reasons": [
+        "Overall capped discovery priority"
+      ],
+      "candidates": [
+        {
+          "number": 109748,
+          "title": "fix(aio): run the llm tagger as a sync activity",
+          "url": "https://github.com/PostHog/posthog/pull/109748"
+        },
+        {
+          "number": 117546,
+          "title": "fix(aio): give backfill evaluation runs a longer retry budget",
+          "url": "https://github.com/PostHog/posthog/pull/117546"
+        },
+        {
+          "number": 92971,
+          "title": "fix(aio): explain the trace root empty state in plain language",
+          "url": "https://github.com/PostHog/posthog/pull/92971"
+        }
+      ]
+    },
+    {
+      "author": "gantoine",
+      "reasons": [
+        "Overall capped discovery priority"
+      ],
+      "candidates": [
+        {
+          "number": 101929,
+          "title": "chore(ci): set up Trunk Dynamic CI in learning mode",
+          "url": "https://github.com/PostHog/posthog/pull/101929"
+        },
+        {
+          "number": 71488,
+          "title": "chore(ci): add critical-path playwright specs for auth, keys, flags, ingestion",
+          "url": "https://github.com/PostHog/posthog/pull/71488"
+        },
+        {
+          "number": 90085,
+          "title": "fix(devex): narrow the merge-queue universal lane",
+          "url": "https://github.com/PostHog/posthog/pull/90085"
+        }
+      ]
+    },
+    {
+      "author": "jose-sequeira",
+      "reasons": [
+        "Overall capped discovery priority",
+        "Current leading position: reassess on equal terms"
+      ],
+      "candidates": [
+        {
+          "number": 90841,
+          "title": "fix(oauth): check third-party access from the user's tokens",
+          "url": "https://github.com/PostHog/posthog/pull/90841"
+        },
+        {
+          "number": 115960,
+          "title": "feat(ingestion-consumer): resend only the unfinished part of a request",
+          "url": "https://github.com/PostHog/posthog/pull/115960"
+        },
+        {
+          "number": 90790,
+          "title": "chore(ingestion): remove the HTTP transport between consumer and workers",
+          "url": "https://github.com/PostHog/posthog/pull/90790"
+        }
+      ]
+    },
+    {
+      "author": "andrewm4894",
+      "reasons": [
+        "Overall capped discovery priority"
+      ],
+      "candidates": [
+        {
+          "number": 89584,
+          "title": "feat(skills): add a bundle endpoint for a user's store skills",
+          "url": "https://github.com/PostHog/posthog/pull/89584"
+        },
+        {
+          "number": 73499,
+          "title": "fix(alerts): recover leaked-string hypotheses from investigation report",
+          "url": "https://github.com/PostHog/posthog/pull/73499"
+        },
+        {
+          "number": 87121,
+          "title": "fix(llma): answer an unusable publish installation with 503, not 502",
+          "url": "https://github.com/PostHog/posthog/pull/87121"
+        }
+      ]
+    },
+    {
+      "author": "cvolzer3",
+      "reasons": [
+        "Overall capped discovery priority"
+      ],
+      "candidates": [
+        {
+          "number": 80949,
+          "title": "fix(signals): stop repeating toast when inbox PR checks can't be fetched",
+          "url": "https://github.com/PostHog/posthog/pull/80949"
+        },
+        {
+          "number": 83238,
+          "title": "feat(mcp-store): split connected servers into a gateway left rail",
+          "url": "https://github.com/PostHog/posthog/pull/83238"
+        },
+        {
+          "number": 77985,
+          "title": "feat(mcp_store): add team-level scope to agent MCP grants",
+          "url": "https://github.com/PostHog/posthog/pull/77985"
+        }
+      ]
+    },
+    {
+      "author": "rafaeelaudibert",
+      "reasons": [
+        "Retained at discovery cutoff tie"
+      ],
+      "candidates": [
+        {
+          "number": 109255,
+          "title": "feat(webmcp): expose the posthog mcp to browser agents through webmcp",
+          "url": "https://github.com/PostHog/posthog/pull/109255"
+        },
+        {
+          "number": 107422,
+          "title": "chore(oauth): move first-party CIMD documents to posthog.com",
+          "url": "https://github.com/PostHog/posthog/pull/107422"
+        },
+        {
+          "number": 105396,
+          "title": "fix(oauth): only let a client revoke tokens issued to it",
+          "url": "https://github.com/PostHog/posthog/pull/105396"
+        }
+      ]
+    },
+    {
+      "author": "lricoy",
+      "reasons": [
+        "Current leading position: reassess on equal terms"
+      ],
+      "candidates": [
+        {
+          "number": 93048,
+          "title": "feat(marketing-analytics): serve reads exclusively from precompute",
+          "url": "https://github.com/PostHog/posthog/pull/93048"
+        },
+        {
+          "number": 73954,
+          "title": "feat(web-analytics): warm each shape to the deepest range its demand needs",
+          "url": "https://github.com/PostHog/posthog/pull/73954"
+        },
+        {
+          "number": 74563,
+          "title": "feat(signals): teach web-vitals scout source localization",
+          "url": "https://github.com/PostHog/posthog/pull/74563"
+        }
+      ]
+    },
+    {
+      "author": "rnegron",
+      "reasons": [
+        "Current leading position: reassess on equal terms"
+      ],
+      "candidates": [
+        {
+          "number": 78518,
+          "title": "feat(hogli): add browser-based PostHog auth for commands",
+          "url": "https://github.com/PostHog/posthog/pull/78518"
+        },
+        {
+          "number": 116333,
+          "title": "chore(ci): point the master-red agent at the evidence it can reach",
+          "url": "https://github.com/PostHog/posthog/pull/116333"
+        },
+        {
+          "number": 114618,
+          "title": "chore(jest): let V8 free finished test files",
+          "url": "https://github.com/PostHog/posthog/pull/114618"
+        }
+      ]
+    },
+    {
+      "author": "yasen-posthog",
+      "reasons": [
+        "Current leading position: reassess on equal terms"
+      ],
+      "candidates": [
+        {
+          "number": 100754,
+          "title": "fix(auth): let a blocked organization's members reach the pages that free them",
+          "url": "https://github.com/PostHog/posthog/pull/100754"
+        },
+        {
+          "number": 104404,
+          "title": "fix(security): require the current password to change the account email",
+          "url": "https://github.com/PostHog/posthog/pull/104404"
+        },
+        {
+          "number": 100148,
+          "title": "fix(reminders): accept OAuth tokens on the reminders API",
+          "url": "https://github.com/PostHog/posthog/pull/100148"
+        }
+      ]
+    }
+  ],
+  "method": "Every author screened; binary outcome/evidence terms; top-three cap; two candidates per area; five area nominations then fill to at least 15 retaining cutoff ties. Current leading positions retained for equal re-review. Hash-based ordering schedules review, not impact."
+}

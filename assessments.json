@@ -1,5 +1,5 @@
 {
-  "status": "Provisional evidence review: 42 initiatives across 46 PRs and 25 authors.",
+  "status": "Revised 57-PR subset: original 46 plus 11 previously assessed PRs from the same 25 authors.",
   "assessments": [
     {
       "initiative": "Faster ingestion transformation execution",
@@ -634,7 +634,205 @@
       "reported_result": null,
       "verification": "Relevant implementation and regression assertions inspected; tests not independently executed.",
       "limitations": "Existing source migration remains a follow-up. No measured engineering time savings or user-visible ranking improvement is established."
+    },
+    {
+      "initiative": "Diagnose suspected warehouse memory failures using workload evidence",
+      "author": "danielcarletti",
+      "prs": [
+        76654
+      ],
+      "category": "engineering_enablement",
+      "outcome_strength": 2,
+      "reach": 2,
+      "reason": "Distinguishes likely memory pressure from infrastructure or heartbeat failures.",
+      "evidence": "Workload evidence fields, correlation rules and snapshot/privacy tests inspected.",
+      "reported_result": null,
+      "verification": "Description and selected implementation/regression excerpts inspected; no independent test execution or benchmark reproduction.",
+      "limitations": "Observe-phase classification; no claim that it prevents OOMs or proves true causes.",
+      "evidence_grade": 2,
+      "evidence_label": "Implementation and regression excerpts inspected",
+      "delivery_status": "implemented_deployment_unverified"
+    },
+    {
+      "initiative": "Expose incomplete flag-cache verification sweeps",
+      "author": "haacked",
+      "prs": [
+        79218
+      ],
+      "category": "engineering_enablement",
+      "outcome_strength": 1,
+      "reach": 2,
+      "reason": "Adds counters for clean early exits that otherwise look successful.",
+      "evidence": "Incomplete-run reason counters and pre-created label-pair tests inspected.",
+      "reported_result": null,
+      "verification": "Description and selected implementation/regression excerpts inspected; no independent test execution or benchmark reproduction.",
+      "limitations": "Measurement coverage only; no claim that the underlying outage is fixed.",
+      "evidence_grade": 2,
+      "evidence_label": "Implementation and regression excerpts inspected",
+      "delivery_status": "implemented_deployment_unverified"
+    },
+    {
+      "initiative": "Prevent one OAuth client revoking another client tokens",
+      "author": "rafaeelaudibert",
+      "prs": [
+        105396
+      ],
+      "category": "security_privacy",
+      "outcome_strength": 3,
+      "reach": 3,
+      "reason": "Binds revocation to the requesting application without revealing token existence.",
+      "evidence": "Application-ID comparison before revocation and cross-client token test inspected.",
+      "reported_result": null,
+      "verification": "Description and selected implementation/regression excerpts inspected; no independent test execution or benchmark reproduction.",
+      "limitations": "Requires knowledge of another token to exercise the original issue; no evidence of exploitation.",
+      "evidence_grade": 2,
+      "evidence_label": "Implementation and regression excerpts inspected",
+      "delivery_status": "implemented_deployment_unverified"
+    },
+    {
+      "initiative": "Support CDC history modes through buffered ingestion",
+      "author": "danielcarletti",
+      "prs": [
+        91006
+      ],
+      "category": "customer_value",
+      "outcome_strength": 2,
+      "reach": 2,
+      "reason": "Adds the missing history-only and dual-table modes to a buffered rollout.",
+      "evidence": "Schema eligibility, table-mode paths and companion-table assertions inspected.",
+      "reported_result": null,
+      "verification": "Description and selected implementation/regression excerpts inspected; no independent test execution or benchmark reproduction.",
+      "limitations": "Description reports no affected sources at the time; implemented coverage is not observed adoption.",
+      "evidence_grade": 2,
+      "evidence_label": "Implementation and regression excerpts inspected",
+      "delivery_status": "implemented_deployment_unverified"
+    },
+    {
+      "initiative": "Avoid replacing cached flags with false after group lookup failure",
+      "author": "haacked",
+      "prs": [
+        112933
+      ],
+      "category": "reliability",
+      "outcome_strength": 3,
+      "reach": 2,
+      "reason": "Reports failed evaluation where a group-dependent answer cannot be established.",
+      "evidence": "Lookup error propagation and unsettled-flag regression test inspected.",
+      "reported_result": null,
+      "verification": "Description and selected implementation/regression excerpts inspected; no independent test execution or benchmark reproduction.",
+      "limitations": "Applies to dependent flag conditions; no independently established production failure-rate change.",
+      "evidence_grade": 2,
+      "evidence_label": "Implementation and regression excerpts inspected",
+      "delivery_status": "implemented_deployment_unverified"
+    },
+    {
+      "initiative": "Expose PostHog tools to supporting browser agents",
+      "author": "rafaeelaudibert",
+      "prs": [
+        109255
+      ],
+      "category": "customer_value",
+      "outcome_strength": 2,
+      "reach": 2,
+      "reason": "Bridges authenticated app sessions to the browser-agent tool surface.",
+      "evidence": "Session token/proxy wiring and token-reuse/impersonation assertions inspected.",
+      "reported_result": null,
+      "verification": "Description and selected implementation/regression excerpts inspected; no independent test execution or benchmark reproduction.",
+      "limitations": "Requires supported browser capability and origin-trial/flag setup; unavailable browsers do nothing.",
+      "evidence_grade": 2,
+      "evidence_label": "Implementation and regression excerpts inspected",
+      "delivery_status": "conditional_or_flagged"
+    },
+    {
+      "initiative": "Stop scheduling customer-fixable permanent warehouse failures",
+      "author": "danielcarletti",
+      "prs": [
+        91891
+      ],
+      "category": "reliability",
+      "outcome_strength": 2,
+      "reach": 2,
+      "reason": "Disables affected schemas instead of retrying permanent load errors indefinitely.",
+      "evidence": "Narrow disable-pattern branch, safe helper and transient/permanent distinction tests inspected.",
+      "reported_result": null,
+      "verification": "Description and selected implementation/regression excerpts inspected; no independent test execution or benchmark reproduction.",
+      "limitations": "Only selected customer-fixable errors disable; reported historic wasted runs are not verified savings.",
+      "evidence_grade": 2,
+      "evidence_label": "Implementation and regression excerpts inspected",
+      "delivery_status": "implemented_deployment_unverified"
+    },
+    {
+      "initiative": "Suggest names for log retention rules",
+      "author": "frankh",
+      "prs": [
+        77177
+      ],
+      "category": "customer_value",
+      "outcome_strength": 1,
+      "reach": 1,
+      "reason": "Removes a small naming task in a specific create-rule workflow.",
+      "evidence": "Suggestion validation and filter-description tests inspected.",
+      "reported_result": null,
+      "verification": "Description and selected implementation/regression excerpts inspected; no independent test execution or benchmark reproduction.",
+      "limitations": "Optional AI suggestion; no measured task-completion or adoption improvement.",
+      "evidence_grade": 2,
+      "evidence_label": "Implementation and regression excerpts inspected",
+      "delivery_status": "implemented_deployment_unverified"
+    },
+    {
+      "initiative": "Make Hightouch warehouse imports usable",
+      "author": "Gilbert09",
+      "prs": [
+        72631
+      ],
+      "category": "customer_value",
+      "outcome_strength": 2,
+      "reach": 1,
+      "reason": "Completes a previously hidden scaffold for configuration and sync-history analysis.",
+      "evidence": "Resumable source wiring, fan-out checkpoint parameters and paginator tests inspected.",
+      "reported_result": null,
+      "verification": "Description and selected implementation/regression excerpts inspected; no independent test execution or benchmark reproduction.",
+      "limitations": "Specific connector audience; no verified customer adoption or successful live-vendor sync.",
+      "evidence_grade": 2,
+      "evidence_label": "Implementation and regression excerpts inspected",
+      "delivery_status": "implemented_deployment_unverified"
+    },
+    {
+      "initiative": "Bound replica override writes behind locked person rows",
+      "author": "haacked",
+      "prs": [
+        113497
+      ],
+      "category": "reliability",
+      "outcome_strength": 1,
+      "reach": 1,
+      "reason": "Adds transaction-local lock deadlines for a specific override operation.",
+      "evidence": "Immediate constraints, local lock timeout and blocked-row test inspected.",
+      "reported_result": null,
+      "verification": "Description and selected implementation/regression excerpts inspected; no independent test execution or benchmark reproduction.",
+      "limitations": "Description says production code did not yet call this operation; narrow hardening, not realized fleet benefit.",
+      "evidence_grade": 2,
+      "evidence_label": "Implementation and regression excerpts inspected",
+      "delivery_status": "implemented_deployment_unverified"
+    },
+    {
+      "initiative": "Remove an unused ingestion HTTP transport",
+      "author": "jose-sequeira",
+      "prs": [
+        90790
+      ],
+      "category": "engineering_enablement",
+      "outcome_strength": 2,
+      "reach": 2,
+      "reason": "Reduces duplicate transport maintenance while retaining the deployed gRPC path.",
+      "evidence": "Transport removals and direct gRPC server construction inspected.",
+      "reported_result": null,
+      "verification": "Description and selected implementation/regression excerpts inspected; no independent test execution or benchmark reproduction.",
+      "limitations": "No measured maintenance-time saving or runtime speedup.",
+      "evidence_grade": 2,
+      "evidence_label": "Implementation and regression excerpts inspected",
+      "delivery_status": "implemented_deployment_unverified"
     }
   ],
-  "review_limitations": "Complete merged-PR collection is distinct from selective evidence review: 46 of 17,027 PRs reviewed in depth, spanning 25 of 193 identified human authors. Review depth varies and unreviewed work is not zero impact. Scores are ordinal analyst judgments; small differences do not establish definitive individual superiority."
+  "review_limitations": "All 193 identified human authors screened. Selective assessment covers 57 PRs from 25 authors. This subset was reconstructed after submission from the original 46 plus 11 previously assessed PRs, prioritizing under-reviewed authors and inspected support. It is not the original submitted analysis. Descriptions and selected implementation/regression excerpts were inspected; tests and benchmarks were not independently run."
 }

@@ -1,0 +1,20 @@
+{
+  "baseline_prs": 46,
+  "added_prs": [
+    76654,
+    79218,
+    105396,
+    91006,
+    112933,
+    109255,
+    91891,
+    77177,
+    72631,
+    113497,
+    90790
+  ],
+  "total_prs": 57,
+  "authors": 25,
+  "selection": "Among previously assessed single-PR initiatives from the original authors, prefer fewer reviewed initiatives, then inspected evidence grade, then author login and PR number. No target scores or leaderboard outcomes used.",
+  "timing": "Subset reconstructed after submission; no exact elapsed work time recorded."
+}

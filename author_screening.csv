@@ -1,0 +1,194 @@
+﻿author,PRs screened (not scored),discovery priority (not impact),areas,candidate PRs,nominated
+304,2,0,,73744; 76658,False
+9trocode,1,0,customer_value,78678,False
+AlexlaGuardia,3,1,customer_value; performance; engineering_enablement,72421; 73971; 77027,False
+Asheesh7298,3,0,,69240; 81660; 83533,False
+BaconMan1168,1,0,,88195,False
+CShine612,14,3,customer_value; reliability; performance; security_privacy; engineering_enablement,90890; 116104; 76818,False
+Daesgar,1,1,security_privacy,72824,False
+DanielVisca,98,8,customer_value; reliability; performance; security_privacy; engineering_enablement,75087; 84585; 97528,False
+EDsCODE,74,9,customer_value; reliability; performance; security_privacy; engineering_enablement,75124; 73027; 92846,False
+GeneralistDev,40,7,customer_value; reliability; performance; security_privacy; engineering_enablement,107605; 111756; 116892,False
+Gilbert09,2712,12,customer_value; reliability; performance; security_privacy; engineering_enablement,72631; 88224; 92919,True
+Gudauu,1,1,performance,73382,False
+HaynesPostHog,12,4,customer_value; reliability; performance; engineering_enablement,114120; 73941; 77606,False
+JakeRuth,41,4,reliability; performance; security_privacy; engineering_enablement,92764; 81458; 90659,False
+JamesPatrickGill,59,7,customer_value; reliability; performance; security_privacy; engineering_enablement,87049; 97168; 100151,False
+Jerematix,1,1,engineering_enablement,76553,False
+Jpckson,1,0,,90605,False
+LeonardoRosaa,1,1,engineering_enablement,95920,False
+MGPOCKY,1,0,,76179,False
+MarconLP,2,0,,116873; 118155,False
+MattBro,88,9,customer_value; reliability; performance; security_privacy; engineering_enablement,108612; 72307; 80748,False
+MattPua,167,6,customer_value; reliability; performance; security_privacy; engineering_enablement,87971; 107952; 118066,False
+MichaelKutsch-ph,1,0,,117536,False
+Piccirello,141,9,customer_value; reliability; performance; security_privacy; engineering_enablement,81587; 81631; 76109,False
+Radu-Raicea,83,5,customer_value; reliability; performance; security_privacy; engineering_enablement,106086; 110273; 99431,False
+ReeceJones,69,3,customer_value; reliability; performance; security_privacy; engineering_enablement,69742; 84673; 69099,False
+Silthus,11,4,customer_value; security_privacy; engineering_enablement,103729; 104165; 104161,False
+TorinAsakura,2,0,performance; engineering_enablement,88928; 89260,False
+TueHaulund,177,9,customer_value; reliability; performance; security_privacy; engineering_enablement,116148; 105551; 75395,False
+Twixes,33,6,customer_value; reliability; performance; security_privacy; engineering_enablement,81041; 74590; 68636,False
+VojtechBartos,195,7,customer_value; reliability; performance; security_privacy; engineering_enablement,80685; 108250; 98205,False
+Z3r0Sum,12,6,customer_value; reliability; security_privacy; engineering_enablement,105316; 90365; 90387,False
+a-lider,93,8,customer_value; reliability; performance; security_privacy; engineering_enablement,113436; 73492; 83510,False
+abheek9,3,1,customer_value; performance; engineering_enablement,76874; 84442; 72707,False
+abhischekt,13,3,customer_value; reliability; security_privacy; engineering_enablement,106046; 68925; 100044,False
+abigailbramble,5,5,customer_value; security_privacy; engineering_enablement,72217; 72571; 103860,False
+ablaszkiewicz,79,6,customer_value; reliability; performance; security_privacy; engineering_enablement,104420; 105062; 82654,False
+adamleithp,149,6,customer_value; reliability; performance; security_privacy; engineering_enablement,76454; 101175; 81065,False
+adboio,124,6,customer_value; reliability; performance; security_privacy; engineering_enablement,88035; 87554; 79169,False
+adletsmykov,1,0,,94022,False
+alinph,3,5,customer_value; security_privacy; engineering_enablement,83661; 83773; 103760,False
+amays-phog,10,3,performance; security_privacy; engineering_enablement,94714; 98594; 104817,False
+andehen,113,7,customer_value; reliability; performance; security_privacy; engineering_enablement,100056; 100070; 101452,False
+andre347,1,0,,102141,False
+andrewm4894,206,10,customer_value; reliability; performance; security_privacy; engineering_enablement,89584; 73499; 87121,True
+andyzzhao,58,6,customer_value; reliability; performance; security_privacy; engineering_enablement,100667; 88139; 91931,False
+annaszell,14,3,customer_value; reliability; security_privacy; engineering_enablement,75294; 74248; 73906,False
+arnohillen,155,9,customer_value; reliability; performance; security_privacy; engineering_enablement,81440; 96026; 96100,False
+arthurdedeus,178,8,customer_value; reliability; performance; security_privacy; engineering_enablement,113510; 75778; 76837,False
+aspicer,56,12,customer_value; reliability; performance; security_privacy; engineering_enablement,88183; 86837; 82910,True
+bciaraldi,15,3,customer_value; reliability; performance; security_privacy; engineering_enablement,111086; 81459; 78005,False
+benben,27,9,customer_value; reliability; performance; security_privacy; engineering_enablement,113811; 72863; 81289,False
+benjackwhite,83,7,customer_value; reliability; performance; security_privacy; engineering_enablement,79468; 77168; 92452,False
+bernatixer,63,10,customer_value; reliability; performance; security_privacy; engineering_enablement,109748; 117546; 92971,True
+bill-ph,20,7,customer_value; reliability; performance; security_privacy; engineering_enablement,92080; 74669; 83283,False
+brandonleung,76,8,customer_value; reliability; performance; security_privacy; engineering_enablement,87269; 92888; 93846,False
+brittanyjoiner15,1,1,customer_value; performance,82310,False
+bs1180,3,1,reliability; security_privacy; engineering_enablement,72974; 66047; 110578,False
+carles-ph,1,0,,94143,False
+carlos-marchal-ph,80,8,customer_value; reliability; performance; security_privacy; engineering_enablement,85234; 111747; 85337,False
+cat-ph,39,8,customer_value; reliability; performance; security_privacy; engineering_enablement,90535; 84941; 92053,False
+ceyniustranberg,8,3,customer_value; security_privacy; engineering_enablement,70366; 70358; 70370,False
+charlesvien,154,8,customer_value; reliability; performance; security_privacy; engineering_enablement,78082; 70604; 91360,False
+christiaan-ph,55,5,customer_value; reliability; performance; security_privacy; engineering_enablement,76569; 72932; 79467,False
+clr182,25,3,customer_value; reliability; performance; security_privacy; engineering_enablement,82704; 74760; 90142,False
+cohenroy,15,0,customer_value; reliability; security_privacy; engineering_enablement,94056; 95083; 111530,False
+concernedsebster,1,0,,71400,False
+cvolzer3,71,10,customer_value; reliability; performance; security_privacy; engineering_enablement,80949; 83238; 77985,True
+danazou,4,5,customer_value; reliability; engineering_enablement,80304; 99229; 88608,False
+danielcarletti,203,12,customer_value; reliability; performance; security_privacy; engineering_enablement,91891; 76654; 91006,True
+danieldanilov,1,1,reliability,85188,False
+danielxnj,8,2,customer_value; performance; engineering_enablement,105596; 88662; 88480,False
+darkopia,23,4,customer_value; reliability; performance; engineering_enablement,115683; 66701; 117288,False
+dennishavermans,1,0,,91631,False
+dkarasiewicz,2,1,customer_value; engineering_enablement,72917; 71029,False
+dmarchuk,206,10,customer_value; reliability; performance; security_privacy; engineering_enablement,117210; 78182; 114706,True
+dmarticus,119,3,customer_value; reliability; performance; security_privacy; engineering_enablement,109532; 91727; 108760,False
+dustinbyrne,3,0,reliability; engineering_enablement,97613; 79732; 98787,False
+eleftheriatrivyzaki,17,4,customer_value; reliability; performance; security_privacy; engineering_enablement,79431; 88368; 112431,False
+eli-r-ph,143,11,customer_value; reliability; performance; security_privacy; engineering_enablement,86792; 107014; 103269,True
+ella-c-ph,7,1,reliability; engineering_enablement,88619; 80324; 87806,False
+estefaniarabadan,45,9,customer_value; reliability; performance; security_privacy; engineering_enablement,72377; 74227; 84493,False
+fasyy612,66,7,customer_value; reliability; performance; security_privacy; engineering_enablement,73112; 110129; 110622,False
+feliperalmeida,6,1,security_privacy; engineering_enablement,91112; 112626; 82212,False
+fercgomes,61,6,customer_value; reliability; performance; security_privacy; engineering_enablement,74034; 74038; 74957,False
+fivestarspicy,29,4,customer_value; reliability; performance; security_privacy; engineering_enablement,75191; 74444; 80147,False
+flcrom,2,2,customer_value; engineering_enablement,102932; 103163,False
+frankh,178,12,customer_value; reliability; performance; security_privacy; engineering_enablement,94428; 84547; 77177,True
+fuziontech,4,3,reliability; performance; security_privacy; engineering_enablement,80285; 91098; 95304,False
+gantoine,161,10,customer_value; reliability; performance; security_privacy; engineering_enablement,101929; 71488; 90085,True
+georgemunyoro,31,6,customer_value; reliability; performance; security_privacy; engineering_enablement,68901; 92325; 90911,False
+gesh,29,3,customer_value; reliability; performance; security_privacy; engineering_enablement,105212; 73442; 74544,False
+gewenyu99,6,0,engineering_enablement,100469; 106252; 79843,False
+gouveags,2,0,,71323; 74380,False
+gtpooniwala,1,0,engineering_enablement,84625,False
+gustavohstrassburger,38,5,customer_value; reliability; performance; security_privacy; engineering_enablement,90970; 77485; 76950,False
+haacked,196,11,customer_value; reliability; performance; security_privacy; engineering_enablement,112933; 113497; 79218,True
+hpouillot,149,7,customer_value; reliability; performance; security_privacy; engineering_enablement,112827; 106741; 78301,False
+iagodahlem,1,1,engineering_enablement,91950,False
+ianmatson,1,0,security_privacy; engineering_enablement,105358,False
+ioannisj,3,1,customer_value; performance; security_privacy,72490; 103925; 103703,False
+ivanagas,1,1,customer_value,78586,False
+jabahamondes,171,8,customer_value; reliability; performance; security_privacy; engineering_enablement,86748; 82782; 91071,False
+jakesciotto,102,8,customer_value; reliability; performance; security_privacy; engineering_enablement,78034; 114051; 103472,False
+jaymasiwal,1,0,,66533,False
+jcoulaud,1,1,customer_value,89403,False
+jericopingul,1,0,,85635,False
+jghoman,1,1,reliability; engineering_enablement,87259,False
+jina-yoon,1,0,,95495,False
+joethreepwood,24,3,customer_value; reliability; performance; security_privacy; engineering_enablement,73523; 113302; 79466,False
+johncwaters,4,2,customer_value; engineering_enablement,116084; 118104; 114066,False
+jonah-svi,1,0,customer_value,108949,False
+jonathanlab,47,3,customer_value; performance; security_privacy; engineering_enablement,92560; 76754; 77402,False
+jonmcwest,159,9,customer_value; reliability; performance; security_privacy; engineering_enablement,114450; 75547; 89359,False
+jordanm-posthog,96,3,customer_value; reliability; security_privacy; engineering_enablement,98735; 77767; 102478,False
+jose-sequeira,121,10,customer_value; reliability; performance; security_privacy; engineering_enablement,90841; 115960; 90790,True
+joshsny,8,2,customer_value; reliability; engineering_enablement,75667; 77295; 74953,False
+jtomei0,2,0,,92101; 93575,False
+jurajmajerik,243,9,customer_value; reliability; performance; security_privacy; engineering_enablement,102076; 101609; 101839,False
+jzhu13,132,9,customer_value; reliability; performance; security_privacy; engineering_enablement,105591; 116614; 105603,False
+k11kirky,135,9,customer_value; reliability; performance; security_privacy; engineering_enablement,77176; 80616; 96242,False
+k33lan,3,3,reliability; performance; security_privacy; engineering_enablement,83040; 90081; 84152,False
+kdawgwilk,1,0,engineering_enablement,75112,False
+ksvat,153,9,customer_value; reliability; performance; security_privacy; engineering_enablement,107096; 114150; 83404,False
+kyleswank,24,6,customer_value; reliability; performance; security_privacy; engineering_enablement,75700; 86737; 78477,False
+langesven,14,4,customer_value; reliability; performance; security_privacy; engineering_enablement,113460; 116076; 115594,False
+leonhardprinz,3,1,engineering_enablement,97224; 113931; 94502,False
+lricoy,104,7,customer_value; reliability; performance; security_privacy; engineering_enablement,93048; 73954; 74563,True
+lucasheriques,89,8,customer_value; reliability; performance; security_privacy; engineering_enablement,101841; 116300; 76884,False
+luke-belton,67,4,customer_value; reliability; performance; security_privacy; engineering_enablement,73860; 93270; 66841,False
+lukebaber-posthog,6,3,customer_value; security_privacy,69406; 85909; 73353,False
+marandaneto,30,4,customer_value; reliability; performance; security_privacy; engineering_enablement,100394; 73077; 76416,False
+marco-g-pm,14,3,customer_value; reliability; engineering_enablement,77819; 88457; 94568,False
+mariusandra,157,6,customer_value; reliability; performance; security_privacy; engineering_enablement,115546; 118543; 102878,False
+matheus-vb,59,9,customer_value; reliability; performance; security_privacy; engineering_enablement,114756; 114526; 73737,False
+mayteio,213,9,customer_value; reliability; performance; security_privacy; engineering_enablement,84546; 72609; 88244,False
+mcoll-posthog,3,3,reliability; performance; engineering_enablement,73749; 74542; 79675,False
+meikelmosby,157,9,customer_value; reliability; performance; security_privacy; engineering_enablement,71038; 100790; 114369,False
+mikaylathompson,50,3,customer_value; performance; security_privacy; engineering_enablement,109433; 109204; 100700,False
+minekansu,4,2,reliability; performance; engineering_enablement,83945; 86006; 83947,False
+mjwarren3,15,6,customer_value; reliability; performance; engineering_enablement,76886; 104097; 74333,False
+mp-hog,102,8,customer_value; reliability; performance; security_privacy; engineering_enablement,71032; 114739; 98917,False
+nickbest-ph,96,9,customer_value; reliability; performance; security_privacy; engineering_enablement,102743; 89762; 93853,False
+nicowaltz,11,2,customer_value; reliability; performance,117639; 115615; 116911,False
+oliverb123,13,5,customer_value; reliability; performance; security_privacy; engineering_enablement,108224; 68885; 98560,False
+orian,99,7,customer_value; reliability; performance; security_privacy; engineering_enablement,110902; 99554; 103308,False
+patricio-posthog,36,7,customer_value; reliability; performance; security_privacy; engineering_enablement,111078; 76821; 90561,False
+pauldambra,484,11,customer_value; reliability; performance; security_privacy; engineering_enablement,95749; 83929; 108135,True
+pawel-cebula,32,3,customer_value; reliability; performance; security_privacy; engineering_enablement,105117; 105798; 79048,False
+phillram,26,3,customer_value; reliability; performance; security_privacy; engineering_enablement,82779; 87275; 90647,False
+pl,71,9,customer_value; reliability; performance; security_privacy; engineering_enablement,78260; 87895; 104398,False
+puemos,411,9,customer_value; reliability; performance; security_privacy; engineering_enablement,97543; 81230; 95752,False
+puspoaditya,1,1,reliability,90870,False
+rafaeelaudibert,202,10,customer_value; reliability; performance; security_privacy; engineering_enablement,109255; 107422; 105396,True
+raquelmsmith,5,4,customer_value; performance; security_privacy; engineering_enablement,80801; 84893; 95374,False
+richardsolomou,12,3,customer_value; reliability; performance; security_privacy; engineering_enablement,79501; 107536; 71936,False
+rnegron,379,8,customer_value; reliability; performance; security_privacy; engineering_enablement,78518; 116333; 114618,True
+robbie-c,147,12,customer_value; reliability; performance; security_privacy; engineering_enablement,73643; 73732; 81188,True
+rodrigoi,88,6,customer_value; reliability; performance; security_privacy; engineering_enablement,118046; 113613; 106190,False
+rorylshanks,32,6,customer_value; reliability; performance; security_privacy; engineering_enablement,96738; 98226; 97146,False
+rossgray,83,6,customer_value; reliability; performance; security_privacy; engineering_enablement,74829; 106551; 115962,False
+rubychilds,31,6,customer_value; reliability; performance; security_privacy; engineering_enablement,108052; 74990; 77649,False
+ryanmccrary,1,0,,93708,False
+sakce,187,9,customer_value; reliability; performance; security_privacy; engineering_enablement,79751; 109341; 73176,False
+sampennington,175,6,customer_value; reliability; performance; security_privacy; engineering_enablement,118700; 117703; 77249,False
+sarahxsanders,6,0,performance; security_privacy; engineering_enablement,103820; 76893; 111926,False
+seanpem,11,3,customer_value; reliability; security_privacy; engineering_enablement,94399; 114117; 76071,False
+simfish85,1,2,customer_value; security_privacy; engineering_enablement,88000,False
+simpleqt,1,0,,97079,False
+sinan-ku,103,7,customer_value; reliability; performance; security_privacy; engineering_enablement,82636; 98596; 83140,False
+sinthetix,1,0,,94440,False
+skoob13,126,8,customer_value; reliability; performance; security_privacy; engineering_enablement,72304; 83605; 71491,False
+sky93,2,0,customer_value; reliability; performance; security_privacy,91392; 91403,False
+slshults,10,3,customer_value; reliability; security_privacy; engineering_enablement,72446; 78634; 92017,False
+snitkdan-ph,2,1,engineering_enablement,103365; 107931,False
+sortafreel,86,8,customer_value; reliability; performance; security_privacy; engineering_enablement,112511; 74651; 71986,False
+sufi-ph,5,3,customer_value; reliability; engineering_enablement,72088; 72685; 73360,False
+tatoalo,348,6,customer_value; reliability; performance; security_privacy; engineering_enablement,73102; 95238; 100173,False
+thiagosalvatore,166,9,customer_value; reliability; performance; security_privacy; engineering_enablement,117163; 76734; 83858,False
+thmsobrmlr,219,9,customer_value; reliability; performance; security_privacy; engineering_enablement,102774; 104034; 96058,False
+timgl,1,1,security_privacy,76345,False
+tomasfarias,63,4,customer_value; reliability; performance; security_privacy; engineering_enablement,117900; 93959; 70484,False
+tpgilmore,22,6,customer_value; reliability; performance; security_privacy; engineering_enablement,108611; 112108; 92038,False
+turnipdabeets,7,1,reliability; engineering_enablement,83710; 112039; 102724,False
+vdekrijger,63,5,customer_value; reliability; performance; security_privacy; engineering_enablement,65407; 115284; 113384,False
+veryayskiy,88,6,customer_value; reliability; performance; security_privacy; engineering_enablement,78936; 103607; 101658,False
+wakqasahmed,1,0,,83562,False
+webjunkie,516,9,customer_value; reliability; performance; security_privacy; engineering_enablement,91519; 105972; 102766,False
+willwearing,9,3,customer_value; engineering_enablement,73951; 86148; 99861,False
+xljones,36,3,customer_value; reliability; security_privacy; engineering_enablement,72222; 75343; 73861,False
+yasen-posthog,95,9,customer_value; reliability; performance; security_privacy; engineering_enablement,100754; 104404; 100148,True
+z0br0wn,82,11,customer_value; reliability; performance; security_privacy; engineering_enablement,74478; 75715; 107052,True
+zaniluca,1,0,,69454,False

@@ -11,20 +11,24 @@ def rank(authors, outcome_weight=1, reach_weight=1):
     for author, initiatives in authors.items():
         selected = sorted(
             initiatives,
-            key=lambda x: (-(outcome_weight*x['outcome_strength'] + reach_weight*x['reach']), x['initiative']),
+            key=lambda x: (-(outcome_weight*x['outcome_strength'] + reach_weight*x['reach']), -x.get('evidence_grade', 1), -x['reach'], x['initiative']),
         )[:3]
         rows.append({
             'author': author,
             'score': sum(outcome_weight*x['outcome_strength'] + reach_weight*x['reach'] for x in selected),
             'reviewed_initiative_count': len(initiatives),
             'counted_initiatives': selected,
+            'all_reviewed_initiatives': initiatives,
+            'evidence_total': sum(i.get('evidence_grade', 1) for i in selected),
+            'supported_reach_total': sum(i['reach'] for i in selected),
         })
-    rows.sort(key=lambda x: (-x['score'], x['author'].lower()))
+    rows.sort(key=lambda x: (-x['score'], -x['evidence_total'], -x['supported_reach_total'], x['author'].lower()))
     last = None
     for position, row in enumerate(rows, 1):
         if row['score'] != last:
             current_rank = position
         row['rank'] = current_rank
+        row['selection_position'] = position
         last = row['score']
     return rows
 
@@ -34,6 +38,7 @@ def main():
     parser.add_argument('--root', type=pathlib.Path, default=pathlib.Path(__file__).resolve().parent)
     parser.add_argument('--assessments', type=pathlib.Path)
     parser.add_argument('--output', type=pathlib.Path)
+    parser.add_argument('--screening', type=pathlib.Path)
     args = parser.parse_args()
     root = args.root
     document = json.loads((args.assessments or root/'assessments.json').read_text(encoding='utf-8-sig'))
@@ -68,6 +73,22 @@ def main():
         authors[assessment['author']].append(enriched)
     human = [pr for pr in source if pr.get('author') and pr['author']['__typename'] != 'Bot']
     balanced = rank(authors)
+    screening_path = args.screening or root/'review_queue.json'
+    screening = json.loads(screening_path.read_text(encoding='utf-8-sig')) if screening_path.exists() else None
+    if screening and (screening['screened_authors'] != len({pr['author']['login'] for pr in human}) or screening['screened_prs'] != len(human)):
+        raise ValueError('Screening coverage does not match source data')
+    summaries = {
+        'jose-sequeira': 'Makes shared ingestion faster and person deletion more reliable.',
+        'pauldambra': 'Reduces login and search delays while strengthening token and streaming behavior.',
+        'yasen-posthog': 'Protects account identity and enforces access boundaries when permissions change.',
+        'rnegron': 'Removes CI waste, prevents destructive file handling, and reduces runtime overhead.',
+        'eli-r-ph': 'Improves recovery after database failover and makes shared capture behavior more robust.',
+        'Gilbert09': 'Improves warehouse loading, memory bounds, and access to connector data.',
+        'lricoy': 'Improves analytics query paths and cache warming while respecting property restrictions.',
+        'robbie-c': 'Protects image privacy and keeps anonymization and inference processing recoverable.',
+    }
+    for row in balanced:
+        row['summary'] = summaries.get(row['author'], row['counted_initiatives'][0]['reason'])
     outcome = rank(authors, 2, 1)
     reach = rank(authors, 1, 2)
     payload = {
@@ -75,15 +96,24 @@ def main():
         'coverage': {**manifest, 'human_authored_prs': len(human),
                      'human_authors': len({pr['author']['login'] for pr in human}),
                      'reviewed_prs': len(used), 'reviewed_authors': len(authors),
+                     'screened_human_authors': screening['screened_authors'] if screening else None,
                      'reviewed_initiatives': len(document['assessments'])},
         'methodology': {
             'formula': 'Sum of the three strongest reviewed initiative scores; each = outcome (0–4) + reach (0–3). Maximum 21.',
-            'ties': 'Equal scores receive equal ranks. Alphabetical display order is not a tie-break judgment.',
+            'ties': 'Equal scores share ranks. Five featured places prioritize inspected evidence grade and then supported reach; cutoff alternatives remain disclosed.',
             'limitations': document['review_limitations'],
             'evidence': 'Relevant diff excerpts inspected; tests and benchmarks not independently executed.',
             'confidence': 'Reported measurements are labeled separately; scores are analyst judgments, not measured business impact.',
         },
         'engineers': balanced,
+        'screening': screening,
+        'selection_policy': {
+            'featured_count': 5,
+            'order': 'Score, then sum of inspected evidence grades, then supported reach across counted initiatives.',
+            'evidence_grades': '2: implementation and regression excerpts; 1: implementation/configuration only; 0: guidance only. Tests were not executed. These grades describe inspected support, not certainty of business impact.',
+            'ties': 'Scores retain equal ranks. Cutoff alternatives are disclosed; feature selection expresses a stated evidence/reach preference, not a unique mathematical winner.',
+            'cutoff_alternatives': [r['author'] for r in balanced[5:] if r['score'] == balanced[4]['score']] if len(balanced)>5 else [],
+        },
         'sensitivity': {
             'outcome_focused': [{'author': r['author'], 'rank': r['rank']} for r in outcome],
             'reach_focused': [{'author': r['author'], 'rank': r['rank']} for r in reach],
